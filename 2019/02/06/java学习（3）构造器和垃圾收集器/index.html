@@ -108,17 +108,16 @@
   <meta name="description" content="一、构造器和垃圾收集器1、栈与堆方法的调用和局部变量在栈，所有的对象在堆 栈顶上的方法是目前正在执行的。 对象的引用变量（就是遥控器）存放在栈上，而对象则存放到堆上 实例变量存放在所属对象的堆空间上。 2、构造函数构造函数并不是一个方法 构造函数没有返回的类型，并且名称要与类名一致 分辨方法和构造函数的办法就是是否有返回类型 如果写了一个带有参数的构造函数，那么应该再写一个没有参数的构造函数 构造">
 <meta name="keywords" content="后端,java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java学习（1）java基础">
+<meta property="og:title" content="java学习（3）构造器、数字与静态、异常处理">
 <meta property="og:url" content="http://yoursite.com/2019/02/06/java学习（3）构造器和垃圾收集器/index.html">
 <meta property="og:site_name" content="xinyuan&#39;s Blog">
 <meta property="og:description" content="一、构造器和垃圾收集器1、栈与堆方法的调用和局部变量在栈，所有的对象在堆 栈顶上的方法是目前正在执行的。 对象的引用变量（就是遥控器）存放在栈上，而对象则存放到堆上 实例变量存放在所属对象的堆空间上。 2、构造函数构造函数并不是一个方法 构造函数没有返回的类型，并且名称要与类名一致 分辨方法和构造函数的办法就是是否有返回类型 如果写了一个带有参数的构造函数，那么应该再写一个没有参数的构造函数 构造">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://plgod9q1n.bkt.clouddn.com/03-%E9%9D%99%E6%80%81%E7%9A%84%E5%86%85%E5%AD%98%E5%9B%BE.png">
 <meta property="og:image" content="http://plgod9q1n.bkt.clouddn.com/02-%E9%9D%99%E6%80%81static%E5%85%B3%E9%94%AE%E5%AD%97%E6%A6%82%E8%BF%B0.png">
-<meta property="og:image" content="d:/%E6%95%99%E5%AD%A6%E8%A7%86%E9%A2%91/JAVA%E8%AF%BE%E4%BB%B6%EF%BC%88IDEA%E7%89%88%E8%AF%BE%E4%BB%B6%EF%BC%89/Java%E5%9F%BA%E7%A1%80/Java%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%96%99/day01/img/%E6%97%A5%E5%8E%86.jpg">
-<meta property="og:updated_time" content="2019-02-12T16:23:13.453Z">
+<meta property="og:updated_time" content="2019-02-15T13:22:06.823Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java学习（1）java基础">
+<meta name="twitter:title" content="java学习（3）构造器、数字与静态、异常处理">
 <meta name="twitter:description" content="一、构造器和垃圾收集器1、栈与堆方法的调用和局部变量在栈，所有的对象在堆 栈顶上的方法是目前正在执行的。 对象的引用变量（就是遥控器）存放在栈上，而对象则存放到堆上 实例变量存放在所属对象的堆空间上。 2、构造函数构造函数并不是一个方法 构造函数没有返回的类型，并且名称要与类名一致 分辨方法和构造函数的办法就是是否有返回类型 如果写了一个带有参数的构造函数，那么应该再写一个没有参数的构造函数 构造">
 <meta name="twitter:image" content="http://plgod9q1n.bkt.clouddn.com/03-%E9%9D%99%E6%80%81%E7%9A%84%E5%86%85%E5%AD%98%E5%9B%BE.png">
 
@@ -137,7 +136,7 @@
   };
 </script>
 
-  <title>java学习（1）java基础 | xinyuan's Blog</title>
+  <title>java学习（3）构造器、数字与静态、异常处理 | xinyuan's Blog</title>
   
 
 
@@ -404,7 +403,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java学习（1）java基础
+          <h1 class="post-title" itemprop="name headline">java学习（3）构造器、数字与静态、异常处理
 
               
             
@@ -447,7 +446,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-13 00:23:13" itemprop="dateModified" datetime="2019-02-13T00:23:13+08:00">2019-02-13</time>
+                <time title="修改时间：2019-02-15 21:22:06" itemprop="dateModified" datetime="2019-02-15T21:22:06+08:00">2019-02-15</time>
               
             
           </span>
@@ -530,7 +529,7 @@
 <p>使用this()来从某个构造函数调用同一个类的另外一个构造函数，this()只能用在构造函数中，且必须是第一行语句。super()和this()不能兼得。</p>
 <h2 id="3、对象的生命周期"><a href="#3、对象的生命周期" class="headerlink" title="3、对象的生命周期"></a>3、对象的生命周期</h2><p>当最后一个引用消失的时候，对象就会变成可回收的。</p>
 <p>对null引用执行圆点运算符会在执行期遇到NullPointerException这样的错误</p>
-<h1 id="三、数字与静态"><a href="#三、数字与静态" class="headerlink" title="三、数字与静态"></a>三、数字与静态</h1><h2 id="1、Math方法"><a href="#1、Math方法" class="headerlink" title="1、Math方法"></a>1、Math方法</h2><p>最接近全局的方法。</p>
+<h1 id="二、数字与静态"><a href="#二、数字与静态" class="headerlink" title="二、数字与静态"></a>二、数字与静态</h1><h2 id="1、Math方法"><a href="#1、Math方法" class="headerlink" title="1、Math方法"></a>1、Math方法</h2><p>最接近全局的方法。</p>
 <p>这个类中的所有方法都不需要实例变量值，因为这些方法是静态的。</p>
 <h3 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h3><p>java.lang.Math 类包含用于执行基本数学运算的方法，如初等指数、对数、平方根和三角函数。类似这样的工具<br>类，其所有方法均为静态方法，并且不会创建对象，调用起来非常简单。 </p>
 <h3 id="1-2-基本运算方法"><a href="#1-2-基本运算方法" class="headerlink" title="1.2 基本运算方法"></a>1.2 基本运算方法</h3><ul>
@@ -571,6 +570,18 @@
 <p>可以用在很多的地方：方法的参数、返回值、Boolean表达式、数值运算、赋值</p>
 <p>包装也有静态的实用性方法！（将String转换成primitive主数据类型：Integer.parseInt）、（将primitive主数据类型转换为String Double.toString）</p>
 <p>数值转换成String，最简单的方法是将数字接上现有的String  String doubleString = “ ” + d;</p>
+<h3 id="4-1-装箱与拆箱"><a href="#4-1-装箱与拆箱" class="headerlink" title="4.1 装箱与拆箱"></a>4.1 装箱与拆箱</h3><p>基本类型与对应的包装类对象之间，来回转换的过程称为”装箱“与”拆箱“：</p>
+<ul>
+<li><strong>装箱</strong>：从基本类型转换为对应的包装类对象。</li>
+<li><strong>拆箱</strong>：从包装类对象转换为对应的基本类型。</li>
+</ul>
+<p>用Integer与 int为例：（看懂代码即可）</p>
+<p>基本数值—-&gt;包装对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer i = <span class="keyword">new</span> Integer(<span class="number">4</span>);<span class="comment">//使用构造函数函数</span></span><br><span class="line">Integer iii = Integer.valueOf(<span class="number">4</span>);<span class="comment">//使用包装类中的valueOf方法</span></span><br></pre></td></tr></table></figure>
+<p>包装对象—-&gt;基本数值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = i.intValue();</span><br></pre></td></tr></table></figure>
+<h3 id="4-2-自动装箱与自动拆箱"><a href="#4-2-自动装箱与自动拆箱" class="headerlink" title="4.2 自动装箱与自动拆箱"></a>4.2 自动装箱与自动拆箱</h3><p>由于我们经常要做基本类型与包装类之间的转换，从Java 5（JDK 1.5）开始，基本类型与包装类的装箱、拆箱动作可以自动完成。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer i = <span class="number">4</span>;<span class="comment">//自动装箱。相当于Integer i = Integer.valueOf(4);</span></span><br><span class="line">i = i + <span class="number">5</span>;<span class="comment">//等号右边：将i对象转成基本数值(自动拆箱) i.intValue() + 5;</span></span><br><span class="line"><span class="comment">//加法运算完成后，再次装箱，把基本数值转成对象。</span></span><br></pre></td></tr></table></figure>
 <h2 id="5、数字的格式化"><a href="#5、数字的格式化" class="headerlink" title="5、数字的格式化"></a>5、数字的格式化</h2><p>调用静态的String.format()并传入值与格式设定</p>
 <p>格式化说明的格式：%[argument number] [flags] [width] [.precious] type</p>
 <p>format()函数不是用的重载实现的，而是使用的java的一项新的功能：可变参数列表</p>
@@ -578,165 +589,8 @@
 <p>String.format(“%tA, %&lt;tB %&lt;td”, Today);</p>
 <p>操作日期可以使用：java.util.Calendar</p>
 <p>Calendar cal = Calendar.getInstance();</p>
-<h3 id="6-1-Date类"><a href="#6-1-Date类" class="headerlink" title="6.1 Date类"></a>6.1 Date类</h3><h4 id="6-1-1-概述"><a href="#6-1-1-概述" class="headerlink" title="6.1.1 概述"></a>6.1.1 概述</h4><p><code>java.util.Date</code>类 表示特定的瞬间，精确到毫秒。</p>
-<p>继续查阅Date类的描述，发现Date拥有多个构造函数，只是部分已经过时，但是其中有未过时的构造函数可以把毫秒值转成日期对象。</p>
-<ul>
-<li><code>public Date()</code>：分配Date对象并初始化此对象，以表示分配它的时间（精确到毫秒）。</li>
-<li><code>public Date(long date)</code>：分配Date对象并初始化此对象，以表示自从标准基准时间（称为“历元（epoch）”，即1970年1月1日00:00:00 GMT）以来的指定毫秒数。</li>
-</ul>
-<blockquote>
-<p>tips: 由于我们处于东八区，所以我们的基准时间为1970年1月1日8时0分0秒。</p>
-</blockquote>
-<p>简单来说：使用无参构造，可以自动设置当前系统时间的毫秒时刻；指定long类型的构造参数，可以自定义毫秒时刻。例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01Date</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 创建日期对象，把当前的时间</span></span><br><span class="line">        System.out.println(<span class="keyword">new</span> Date()); <span class="comment">// Tue Jan 16 14:37:35 CST 2018</span></span><br><span class="line">        <span class="comment">// 创建日期对象，把当前的毫秒值转成日期对象</span></span><br><span class="line">        System.out.println(<span class="keyword">new</span> Date(<span class="number">0L</span>)); <span class="comment">// Thu Jan 01 08:00:00 CST 1970</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>tips:在使用println方法时，会自动调用Date类中的toString方法。Date类对Object类中的toString方法进行了覆盖重写，所以结果为指定格式的字符串。</p>
-</blockquote>
-<h4 id="6-1-2-常用方法"><a href="#6-1-2-常用方法" class="headerlink" title="6.1.2 常用方法"></a>6.1.2 常用方法</h4><p>Date类中的多数方法已经过时，常用的方法有：</p>
-<ul>
-<li><code>public long getTime()</code> 把日期对象转换成对应的时间毫秒值。</li>
-</ul>
-<h3 id="6-2-DateFormat类"><a href="#6-2-DateFormat类" class="headerlink" title="6.2 DateFormat类"></a>6.2 DateFormat类</h3><p><code>java.text.DateFormat</code> 是日期/时间格式化子类的抽象类，我们通过这个类可以帮我们完成日期和文本之间的转换,也就是可以在Date对象与String对象之间进行来回转换。</p>
-<ul>
-<li><strong>格式化</strong>：按照指定的格式，从Date对象转换为String对象。</li>
-<li><strong>解析</strong>：按照指定的格式，从String对象转换为Date对象。</li>
-</ul>
-<h4 id="6-2-1-构造方法"><a href="#6-2-1-构造方法" class="headerlink" title="6.2.1 构造方法"></a>6.2.1 构造方法</h4><p>由于DateFormat为抽象类，不能直接使用，所以需要常用的子类<code>java.text.SimpleDateFormat</code>。这个类需要一个模式（格式）来指定格式化或解析的标准。构造方法为：</p>
-<ul>
-<li><code>public SimpleDateFormat(String pattern)</code>：用给定的模式和默认语言环境的日期格式符号构造SimpleDateFormat。</li>
-</ul>
-<p>参数pattern是一个字符串，代表日期时间的自定义格式。</p>
-<h4 id="6-2-2-格式规则"><a href="#6-2-2-格式规则" class="headerlink" title="6.2.2 格式规则"></a>6.2.2 格式规则</h4><p>常用的格式规则为：</p>
-<table>
-<thead>
-<tr>
-<th>标识字母（区分大小写）</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>y</td>
-<td>年</td>
-</tr>
-<tr>
-<td>M</td>
-<td>月</td>
-</tr>
-<tr>
-<td>d</td>
-<td>日</td>
-</tr>
-<tr>
-<td>H</td>
-<td>时</td>
-</tr>
-<tr>
-<td>m</td>
-<td>分</td>
-</tr>
-<tr>
-<td>s</td>
-<td>秒</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>备注：更详细的格式规则，可以参考SimpleDateFormat类的API文档0。</p>
-</blockquote>
-<p>创建SimpleDateFormat对象的代码如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.DateFormat;</span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02SimpleDateFormat</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 对应的日期格式如：2018-01-16 15:06:38</span></span><br><span class="line">        DateFormat format = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="6-2-3-常用方法"><a href="#6-2-3-常用方法" class="headerlink" title="6.2.3 常用方法"></a>6.2.3 常用方法</h4><p>DateFormat类的常用方法有：</p>
-<ul>
-<li><code>public String format(Date date)</code>：将Date对象格式化为字符串。</li>
-<li><code>public Date parse(String source)</code>：将字符串解析为Date对象。</li>
-</ul>
-<h5 id="format方法"><a href="#format方法" class="headerlink" title="format方法"></a>format方法</h5><p>使用format方法的代码为：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.DateFormat;</span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 把Date对象转换成String</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo03DateFormatMethod</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Date date = <span class="keyword">new</span> Date();</span><br><span class="line">        <span class="comment">// 创建日期格式化对象,在获取格式化对象时可以指定风格</span></span><br><span class="line">        DateFormat df = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy年MM月dd日"</span>);</span><br><span class="line">        String str = df.format(date);</span><br><span class="line">        System.out.println(str); <span class="comment">// 2008年1月23日</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="parse方法"><a href="#parse方法" class="headerlink" title="parse方法"></a>parse方法</h5><p>使用parse方法的代码为：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.DateFormat;</span><br><span class="line"><span class="keyword">import</span> java.text.ParseException;</span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 把String转换成Date对象</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo04DateFormatMethod</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ParseException </span>&#123;</span><br><span class="line">        DateFormat df = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy年MM月dd日"</span>);</span><br><span class="line">        String str = <span class="string">"2018年12月11日"</span>;</span><br><span class="line">        Date date = df.parse(str);</span><br><span class="line">        System.out.println(date); <span class="comment">// Tue Dec 11 00:00:00 CST 2018</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="6-3-练习"><a href="#6-3-练习" class="headerlink" title="6.3 练习"></a>6.3 练习</h3><p>请使用日期时间相关的API，计算出一个人已经出生了多少天。</p>
-<p><strong>思路：</strong></p>
-<p>1.获取当前时间对应的毫秒值</p>
-<p>2.获取自己出生日期对应的毫秒值</p>
-<p>3.两个时间相减（当前时间– 出生日期）</p>
-<p><strong>代码实现：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">function</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"请输入出生日期 格式 YYYY-MM-dd"</span>);</span><br><span class="line">	<span class="comment">// 获取出生日期,键盘输入</span></span><br><span class="line">	String birthdayString = <span class="keyword">new</span> Scanner(System.in).next();</span><br><span class="line">	<span class="comment">// 将字符串日期,转成Date对象</span></span><br><span class="line">	<span class="comment">// 创建SimpleDateFormat对象,写日期模式</span></span><br><span class="line">	SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">	<span class="comment">// 调用方法parse,字符串转成日期对象</span></span><br><span class="line">	Date birthdayDate = sdf.parse(birthdayString);	</span><br><span class="line">	<span class="comment">// 获取今天的日期对象</span></span><br><span class="line">	Date todayDate = <span class="keyword">new</span> Date();	</span><br><span class="line">	<span class="comment">// 将两个日期转成毫秒值,Date类的方法getTime</span></span><br><span class="line">	<span class="keyword">long</span> birthdaySecond = birthdayDate.getTime();</span><br><span class="line">	<span class="keyword">long</span> todaySecond = todayDate.getTime();</span><br><span class="line">	<span class="keyword">long</span> secone = todaySecond-birthdaySecond;	</span><br><span class="line">	<span class="keyword">if</span> (secone &lt; <span class="number">0</span>)&#123;</span><br><span class="line">		System.out.println(<span class="string">"还没出生呢"</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		System.out.println(secone/<span class="number">1000</span>/<span class="number">60</span>/<span class="number">60</span>/<span class="number">24</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="6-4-Calendar类"><a href="#6-4-Calendar类" class="headerlink" title="6.4 Calendar类"></a>6.4 Calendar类</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>日历我们都见过</p>
-<p><img src="D:/%E6%95%99%E5%AD%A6%E8%A7%86%E9%A2%91/JAVA%E8%AF%BE%E4%BB%B6%EF%BC%88IDEA%E7%89%88%E8%AF%BE%E4%BB%B6%EF%BC%89/Java%E5%9F%BA%E7%A1%80/Java%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%96%99/day01/img/%E6%97%A5%E5%8E%86.jpg" alt=""></p>
-<p><code>java.util.Calendar</code>是日历类，在Date后出现，替换掉了许多Date的方法。该类将所有可能用到的时间信息封装为静态成员变量，方便获取。日历类就是方便获取各个时间属性的。</p>
-<h4 id="获取方式"><a href="#获取方式" class="headerlink" title="获取方式"></a>获取方式</h4><p>Calendar为抽象类，由于语言敏感性，Calendar类在创建对象时并非直接创建，而是通过静态方法创建，返回子类对象，如下：</p>
-<p>Calendar静态方法</p>
-<ul>
-<li><code>public static Calendar getInstance()</code>：使用默认时区和语言环境获得一个日历</li>
-</ul>
-<p>例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Calendar;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo06CalendarInit</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Calendar cal = Calendar.getInstance();</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><p>根据Calendar类的API文档，常用方法有：</p>
-<ul>
-<li><code>public int get(int field)</code>：返回给定日历字段的值。</li>
-<li><code>public void set(int field, int value)</code>：将给定的日历字段设置为给定值。</li>
-<li><code>public abstract void add(int field, int amount)</code>：根据日历的规则，为给定的日历字段添加或减去指定的时间量。</li>
-<li><code>public Date getTime()</code>：返回一个表示此Calendar时间值（从历元到现在的毫秒偏移量）的Date对象。</li>
-</ul>
-<p>Calendar类中提供很多成员常量，代表给定的日历字段：</p>
-<table>
-<thead>
-<tr>
-<th>字段值</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>YEAR</td>
-<td>年</td>
-</tr>
-<tr>
-<td>MONTH</td>
-<td>月（从0开始，可以+1使用）</td>
-</tr>
-<tr>
-<td>DAY_OF_MONTH</td>
-<td>月中的天（几号）</td>
-</tr>
-<tr>
-<td>HOUR</td>
-<td>时（12小时制）</td>
-</tr>
-<tr>
-<td>HOUR_OF_DAY</td>
-<td>时（24小时制）</td>
-</tr>
-<tr>
-<td>MINUTE</td>
-<td>分</td>
-</tr>
-<tr>
-<td>SECOND</td>
-<td>秒</td>
-</tr>
-<tr>
-<td>DAY_OF_WEEK</td>
-<td>周中的天（周几，周日为1，可以-1使用）</td>
-</tr>
-</tbody>
-</table>
-<h5 id="get-set方法"><a href="#get-set方法" class="headerlink" title="get/set方法"></a>get/set方法</h5><p>get方法用来获取指定字段的值，set方法用来设置指定字段的值，代码使用演示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Calendar;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CalendarUtil</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 创建Calendar对象</span></span><br><span class="line">        Calendar cal = Calendar.getInstance();</span><br><span class="line">        <span class="comment">// 设置年 </span></span><br><span class="line">        <span class="keyword">int</span> year = cal.get(Calendar.YEAR);</span><br><span class="line">        <span class="comment">// 设置月</span></span><br><span class="line">        <span class="keyword">int</span> month = cal.get(Calendar.MONTH) + <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 设置日</span></span><br><span class="line">        <span class="keyword">int</span> dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);</span><br><span class="line">        System.out.print(year + <span class="string">"年"</span> + month + <span class="string">"月"</span> + dayOfMonth + <span class="string">"日"</span>);</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Calendar;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo07CalendarMethod</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Calendar cal = Calendar.getInstance();</span><br><span class="line">        cal.set(Calendar.YEAR, <span class="number">2020</span>);</span><br><span class="line">        System.out.print(year + <span class="string">"年"</span> + month + <span class="string">"月"</span> + dayOfMonth + <span class="string">"日"</span>); <span class="comment">// 2020年1月17日</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="add方法"><a href="#add方法" class="headerlink" title="add方法"></a>add方法</h5><p>add方法可以对指定日历字段的值进行加减操作，如果第二个参数为正数则加上偏移量，如果为负数则减去偏移量。代码如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Calendar;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo08CalendarMethod</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Calendar cal = Calendar.getInstance();</span><br><span class="line">        System.out.print(year + <span class="string">"年"</span> + month + <span class="string">"月"</span> + dayOfMonth + <span class="string">"日"</span>); <span class="comment">// 2018年1月17日</span></span><br><span class="line">        <span class="comment">// 使用add方法</span></span><br><span class="line">        cal.add(Calendar.DAY_OF_MONTH, <span class="number">2</span>); <span class="comment">// 加2天</span></span><br><span class="line">        cal.add(Calendar.YEAR, -<span class="number">3</span>); <span class="comment">// 减3年</span></span><br><span class="line">        System.out.print(year + <span class="string">"年"</span> + month + <span class="string">"月"</span> + dayOfMonth + <span class="string">"日"</span>); <span class="comment">// 2015年1月18日; </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="getTime方法"><a href="#getTime方法" class="headerlink" title="getTime方法"></a>getTime方法</h5><p>Calendar中的getTime方法并不是获取毫秒时刻，而是拿到对应的Date对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Calendar;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo09CalendarMethod</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Calendar cal = Calendar.getInstance();</span><br><span class="line">        Date date = cal.getTime();</span><br><span class="line">        System.out.println(date); <span class="comment">// Tue Jan 16 16:03:09 CST 2018</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>小贴士：</p>
-<p>​     西方星期的开始为周日，中国为周一。</p>
-<p>​     在Calendar类中，月份的表示是以0-11代表1-12月。</p>
-<p>​     日期是有大小关系的，时间靠后，时间越大。</p>
-</blockquote>
 <h2 id="7、静态import"><a href="#7、静态import" class="headerlink" title="7、静态import"></a>7、静态import</h2><p>可以少打几行代码，但是会使代码变得难以阅读</p>
-<h1 id="11、异常处理"><a href="#11、异常处理" class="headerlink" title="11、异常处理"></a>11、异常处理</h1><p>使用try/catch块告诉编译器调用方法有风险的</p>
+<h1 id="三、异常处理"><a href="#三、异常处理" class="headerlink" title="三、异常处理"></a>三、异常处理</h1><p>使用try/catch块告诉编译器调用方法有风险的</p>
 <p>异常时一种Exception类型的对象</p>
 <p>方法可以抓住其他方法所抛出的异常。异常总是会丢给调用方。会抛出异常的方法必须要声明他有可能会这么做</p>
 <p>finally：无论如何都要执行的部分</p>
@@ -801,8 +655,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/06/java学习（1）java基础/" rel="next" title="java学习（1）java基础">
-                <i class="fa fa-chevron-left"></i> java学习（1）java基础
+              <a href="/2019/02/01/（7）vue组件/" rel="next" title="（7）vue组件">
+                <i class="fa fa-chevron-left"></i> （7）vue组件
               </a>
             
           </div>
@@ -811,7 +665,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/06/java学习（4）/" rel="prev" title="java学习（1）java基础">
+              <a href="/2019/02/06/java学习（1）java基础/" rel="prev" title="java学习（1）java基础">
                 java学习（1）java基础 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -995,7 +849,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、构造器和垃圾收集器"><span class="nav-number">1.</span> <span class="nav-text">一、构造器和垃圾收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、栈与堆"><span class="nav-number">1.1.</span> <span class="nav-text">1、栈与堆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、构造函数"><span class="nav-number">1.2.</span> <span class="nav-text">2、构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、对象的生命周期"><span class="nav-number">1.3.</span> <span class="nav-text">3、对象的生命周期</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、数字与静态"><span class="nav-number">2.</span> <span class="nav-text">三、数字与静态</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、Math方法"><span class="nav-number">2.1.</span> <span class="nav-text">1、Math方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-概述"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1 概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-基本运算方法"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2 基本运算方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、静态（static）"><span class="nav-number">2.2.</span> <span class="nav-text">2、静态（static）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、final"><span class="nav-number">2.3.</span> <span class="nav-text">3、final</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-总结一下（重要）"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1 总结一下（重要）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、autoboxing（自动装箱）"><span class="nav-number">2.4.</span> <span class="nav-text">4、autoboxing（自动装箱）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、数字的格式化"><span class="nav-number">2.5.</span> <span class="nav-text">5、数字的格式化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、日期"><span class="nav-number">2.6.</span> <span class="nav-text">6、日期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-Date类"><span class="nav-number">2.6.1.</span> <span class="nav-text">6.1 Date类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-1-概述"><span class="nav-number">2.6.1.1.</span> <span class="nav-text">6.1.1 概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-2-常用方法"><span class="nav-number">2.6.1.2.</span> <span class="nav-text">6.1.2 常用方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-DateFormat类"><span class="nav-number">2.6.2.</span> <span class="nav-text">6.2 DateFormat类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-1-构造方法"><span class="nav-number">2.6.2.1.</span> <span class="nav-text">6.2.1 构造方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-2-格式规则"><span class="nav-number">2.6.2.2.</span> <span class="nav-text">6.2.2 格式规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-3-常用方法"><span class="nav-number">2.6.2.3.</span> <span class="nav-text">6.2.3 常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#format方法"><span class="nav-number">2.6.2.3.1.</span> <span class="nav-text">format方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#parse方法"><span class="nav-number">2.6.2.3.2.</span> <span class="nav-text">parse方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-练习"><span class="nav-number">2.6.3.</span> <span class="nav-text">6.3 练习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-Calendar类"><span class="nav-number">2.6.4.</span> <span class="nav-text">6.4 Calendar类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念"><span class="nav-number">2.6.4.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取方式"><span class="nav-number">2.6.4.2.</span> <span class="nav-text">获取方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用方法"><span class="nav-number">2.6.4.3.</span> <span class="nav-text">常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#get-set方法"><span class="nav-number">2.6.4.3.1.</span> <span class="nav-text">get/set方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#add方法"><span class="nav-number">2.6.4.3.2.</span> <span class="nav-text">add方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#getTime方法"><span class="nav-number">2.6.4.3.3.</span> <span class="nav-text">getTime方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、静态import"><span class="nav-number">2.7.</span> <span class="nav-text">7、静态import</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11、异常处理"><span class="nav-number">3.</span> <span class="nav-text">11、异常处理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、构造器和垃圾收集器"><span class="nav-number">1.</span> <span class="nav-text">一、构造器和垃圾收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、栈与堆"><span class="nav-number">1.1.</span> <span class="nav-text">1、栈与堆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、构造函数"><span class="nav-number">1.2.</span> <span class="nav-text">2、构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、对象的生命周期"><span class="nav-number">1.3.</span> <span class="nav-text">3、对象的生命周期</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、数字与静态"><span class="nav-number">2.</span> <span class="nav-text">二、数字与静态</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、Math方法"><span class="nav-number">2.1.</span> <span class="nav-text">1、Math方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-概述"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1 概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-基本运算方法"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2 基本运算方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、静态（static）"><span class="nav-number">2.2.</span> <span class="nav-text">2、静态（static）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、final"><span class="nav-number">2.3.</span> <span class="nav-text">3、final</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-总结一下（重要）"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1 总结一下（重要）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、autoboxing（自动装箱）"><span class="nav-number">2.4.</span> <span class="nav-text">4、autoboxing（自动装箱）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-装箱与拆箱"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.1 装箱与拆箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-自动装箱与自动拆箱"><span class="nav-number">2.4.2.</span> <span class="nav-text">4.2 自动装箱与自动拆箱</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、数字的格式化"><span class="nav-number">2.5.</span> <span class="nav-text">5、数字的格式化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、日期"><span class="nav-number">2.6.</span> <span class="nav-text">6、日期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、静态import"><span class="nav-number">2.7.</span> <span class="nav-text">7、静态import</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、异常处理"><span class="nav-number">3.</span> <span class="nav-text">三、异常处理</span></a></li></ol></div>
             
 
           </div>
