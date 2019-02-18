@@ -105,27 +105,25 @@
 
 
 
-  <meta name="description" content="vue实例的生命周期 什么是生命周期：从Vue实例创建、运行、到销毁期间，总是伴随着各种各样的事件，这些事件，统称为生命周期！ 生命周期钩子：就是生命周期事件的别名而已； 生命周期钩子 = 生命周期函数 = 生命周期事件 主要的生命周期函数分类： 创建期间的生命周期函数： beforeCreate：实例刚在内存中被创建出来，此时，还没有初始化好 data 和 methods 属性 created：">
+  <meta name="description" content="一、render方法渲染组件1、在页面中渲染基本的组件声明一个login组件： 123var login = &amp;#123;  template: &apos;&amp;lt;h1&amp;gt;这是登录组件&amp;lt;/h1&amp;gt;&apos;&amp;#125; 在VM实例中渲染： 12345678var vm = new Vue(&amp;#123;  el: &apos;#app&apos;,  data: &amp;#123;&amp;#125;,  methods: &amp;#123">
 <meta name="keywords" content="前端,vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="（4）vue生命周期">
-<meta property="og:url" content="http://yoursite.com/2019/01/18/（4）vue生命周期/index.html">
+<meta property="og:title" content="（9）webpack-vue">
+<meta property="og:url" content="http://yoursite.com/2019/02/18/（9）webpack-vue/index.html">
 <meta property="og:site_name" content="xinyuan&#39;s Blog">
-<meta property="og:description" content="vue实例的生命周期 什么是生命周期：从Vue实例创建、运行、到销毁期间，总是伴随着各种各样的事件，这些事件，统称为生命周期！ 生命周期钩子：就是生命周期事件的别名而已； 生命周期钩子 = 生命周期函数 = 生命周期事件 主要的生命周期函数分类： 创建期间的生命周期函数： beforeCreate：实例刚在内存中被创建出来，此时，还没有初始化好 data 和 methods 属性 created：">
+<meta property="og:description" content="一、render方法渲染组件1、在页面中渲染基本的组件声明一个login组件： 123var login = &amp;#123;  template: &apos;&amp;lt;h1&amp;gt;这是登录组件&amp;lt;/h1&amp;gt;&apos;&amp;#125; 在VM实例中渲染： 12345678var vm = new Vue(&amp;#123;  el: &apos;#app&apos;,  data: &amp;#123;&amp;#125;,  methods: &amp;#123">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://plgod9q1n.bkt.clouddn.com/lifecycle.png">
-<meta property="og:updated_time" content="2019-01-31T04:08:21.898Z">
+<meta property="og:updated_time" content="2019-02-18T13:52:21.771Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="（4）vue生命周期">
-<meta name="twitter:description" content="vue实例的生命周期 什么是生命周期：从Vue实例创建、运行、到销毁期间，总是伴随着各种各样的事件，这些事件，统称为生命周期！ 生命周期钩子：就是生命周期事件的别名而已； 生命周期钩子 = 生命周期函数 = 生命周期事件 主要的生命周期函数分类： 创建期间的生命周期函数： beforeCreate：实例刚在内存中被创建出来，此时，还没有初始化好 data 和 methods 属性 created：">
-<meta name="twitter:image" content="http://plgod9q1n.bkt.clouddn.com/lifecycle.png">
+<meta name="twitter:title" content="（9）webpack-vue">
+<meta name="twitter:description" content="一、render方法渲染组件1、在页面中渲染基本的组件声明一个login组件： 123var login = &amp;#123;  template: &apos;&amp;lt;h1&amp;gt;这是登录组件&amp;lt;/h1&amp;gt;&apos;&amp;#125; 在VM实例中渲染： 12345678var vm = new Vue(&amp;#123;  el: &apos;#app&apos;,  data: &amp;#123;&amp;#125;,  methods: &amp;#123">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/18/（4）vue生命周期/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/18/（9）webpack-vue/">
 
 
 
@@ -135,7 +133,7 @@
   };
 </script>
 
-  <title>（4）vue生命周期 | xinyuan's Blog</title>
+  <title>（9）webpack-vue | xinyuan's Blog</title>
   
 
 
@@ -385,7 +383,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/18/（4）vue生命周期/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/18/（9）webpack-vue/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xinyuan">
@@ -402,7 +400,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">（4）vue生命周期
+          <h1 class="post-title" itemprop="name headline">（9）webpack-vue
 
               
             
@@ -428,24 +426,12 @@
                 
               
 
-              <time title="创建时间：2019-01-18 11:02:32" itemprop="dateCreated datePublished" datetime="2019-01-18T11:02:32+08:00">2019-01-18</time>
+              <time title="创建时间：2019-02-18 20:24:47 / 修改时间：21:52:21" itemprop="dateCreated datePublished" datetime="2019-02-18T20:24:47+08:00">2019-02-18</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-01-31 12:08:21" itemprop="dateModified" datetime="2019-01-31T12:08:21+08:00">2019-01-31</time>
               
             
           </span>
@@ -462,14 +448,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/web前端/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/web前端/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/前端/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
 
                 
                 
@@ -511,25 +497,92 @@
       
 
       
-        <h2 id="vue实例的生命周期"><a href="#vue实例的生命周期" class="headerlink" title="vue实例的生命周期"></a><a href="https://cn.vuejs.org/v2/guide/instance.html#实例生命周期" target="_blank" rel="noopener">vue实例的生命周期</a></h2><ul>
-<li>什么是生命周期：从Vue实例创建、运行、到销毁期间，总是伴随着各种各样的事件，这些事件，统称为生命周期！</li>
-<li><a href="https://cn.vuejs.org/v2/api/#选项-生命周期钩子" target="_blank" rel="noopener">生命周期钩子</a>：就是生命周期事件的别名而已；</li>
-<li>生命周期钩子 = 生命周期函数 = 生命周期事件</li>
-<li>主要的生命周期函数分类：</li>
-<li>创建期间的生命周期函数：</li>
-<li>beforeCreate：实例刚在内存中被创建出来，此时，还没有初始化好 data 和 methods 属性</li>
-<li>created：实例已经在内存中创建OK，此时 data 和 methods 已经创建OK，此时还没有开始 编译模板</li>
-<li>beforeMount：此时已经完成了模板的编译，但是还没有挂载到页面中</li>
-<li>mounted：此时，已经将编译好的模板，挂载到了页面指定的容器中显示</li>
-<li>运行期间的生命周期函数：</li>
-<li>beforeUpdate：状态更新之前执行此函数， 此时 data 中的状态值是最新的，但是界面上显示的 数据还是旧的，因为此时还没有开始重新渲染DOM节点</li>
-<li>updated：实例更新完毕之后调用此函数，此时 data 中的状态值 和 界面上显示的数据，都已经完成了更新，界面已经被重新渲染好了！</li>
-<li>销毁期间的生命周期函数：</li>
-<li>beforeDestroy：实例销毁之前调用。在这一步，实例仍然完全可用。</li>
-<li>destroyed：Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</li>
+        <h1 id="一、render方法渲染组件"><a href="#一、render方法渲染组件" class="headerlink" title="一、render方法渲染组件"></a>一、render方法渲染组件</h1><h2 id="1、在页面中渲染基本的组件"><a href="#1、在页面中渲染基本的组件" class="headerlink" title="1、在页面中渲染基本的组件"></a>1、在页面中渲染基本的组件</h2><p>声明一个login组件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> login = &#123;</span><br><span class="line">  template: <span class="string">'&lt;h1&gt;这是登录组件&lt;/h1&gt;'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在VM实例中渲染：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data: &#123;&#125;,</span><br><span class="line">  methods: &#123;&#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    login</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="2、在页面中使用render函数渲染组件"><a href="#2、在页面中使用render函数渲染组件" class="headerlink" title="2、在页面中使用render函数渲染组件"></a>2、在页面中使用render函数渲染组件</h2><p>声明一个login组件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> login = &#123;</span><br><span class="line">  template: <span class="string">'&lt;h1&gt;这是登录组件&lt;/h1&gt;'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在VM实例中渲染：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建 Vue 实例，得到 ViewModel</span></span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data: &#123;&#125;,</span><br><span class="line">  methods: &#123;&#125;,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElements</span>) </span>&#123; <span class="comment">// createElements 是一个 方法，调用它，能够把 指定的 组件模板，渲染为 html 结构</span></span><br><span class="line">    <span class="keyword">return</span> createElements(login)</span><br><span class="line">    <span class="comment">// 注意：这里 return 的结果，会 替换页面中 el 指定的那个 容器</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="二、webpack导入vue"><a href="#二、webpack导入vue" class="headerlink" title="二、webpack导入vue"></a>二、webpack导入vue</h1><h2 id="1、webpack-config-js"><a href="#1、webpack-config-js" class="headerlink" title="1、webpack.config.js"></a>1、webpack.config.js</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 由于 webpack 是基于Node进行构建的，所有，webpack的配置文件中，任何合法的Node代码都是支持的</span></span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="comment">// 在内存中，根据指定的模板页面，生成一份内存中的首页，同时自动把打包好的bundle注入到页面底部</span></span><br><span class="line"><span class="comment">// 如果要配置插件，需要在导出的对象中，挂载一个 plugins 节点</span></span><br><span class="line"><span class="keyword">var</span> htmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当以命令行形式运行 webpack 或 webpack-dev-server 的时候，工具会发现，我们并没有提供 要打包 的文件的 入口 和 出口文件，此时，他会检查项目根目录中的配置文件，并读取这个文件，就拿到了导出的这个 配置对象，然后根据这个对象，进行打包构建</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: path.join(__dirname, <span class="string">'./src/main.js'</span>), <span class="comment">// 入口文件</span></span><br><span class="line">  output: &#123; <span class="comment">// 指定输出选项</span></span><br><span class="line">    path: path.join(__dirname, <span class="string">'./dist'</span>), <span class="comment">// 输出路径</span></span><br><span class="line">    filename: <span class="string">'bundle.js'</span> <span class="comment">// 指定输出文件的名称</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [ <span class="comment">// 所有webpack  插件的配置节点</span></span><br><span class="line">    <span class="keyword">new</span> htmlWebpackPlugin(&#123;</span><br><span class="line">      template: path.join(__dirname, <span class="string">'./src/index.html'</span>), <span class="comment">// 指定模板文件路径</span></span><br><span class="line">      filename: <span class="string">'index.html'</span> <span class="comment">// 设置生成的内存页面的名称</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">  <span class="built_in">module</span>: &#123; <span class="comment">// 配置所有第三方loader 模块的</span></span><br><span class="line">    rules: [ <span class="comment">// 第三方模块的匹配规则</span></span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">use</span>: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>] &#125;, <span class="comment">// 处理 CSS 文件的 loader</span></span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.less$/</span>, <span class="attr">use</span>: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>, <span class="string">'less-loader'</span>] &#125;, <span class="comment">// 处理 less 文件的 loader</span></span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.scss$/</span>, <span class="attr">use</span>: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>, <span class="string">'sass-loader'</span>] &#125;, <span class="comment">// 处理 scss 文件的 loader</span></span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.(jpg|png|gif|bmp|jpeg)$/</span>, <span class="attr">use</span>: <span class="string">'url-loader?limit=7631&amp;name=[hash:8]-[name].[ext]'</span> &#125;, <span class="comment">// 处理 图片路径的 loader</span></span><br><span class="line">      <span class="comment">// limit 给定的值，是图片的大小，单位是 byte， 如果我们引用的 图片，大于或等于给定的 limit值，则不会被转为base64格式的字符串， 如果 图片小于给定的 limit 值，则会被转为 base64的字符串</span></span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.(ttf|eot|svg|woff|woff2)$/</span>, <span class="attr">use</span>: <span class="string">'url-loader'</span> &#125;, <span class="comment">// 处理 字体文件的 loader </span></span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">use</span>: <span class="string">'babel-loader'</span>, <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span> &#125;, <span class="comment">// 配置 Babel 来转换高级的ES语法</span></span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>, <span class="attr">use</span>: <span class="string">'vue-loader'</span> &#125; <span class="comment">// 处理 .vue 文件的 loader</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  resolve: &#123;</span><br><span class="line">    alias: &#123; <span class="comment">// 修改 Vue 被导入时候的包的路径</span></span><br><span class="line">      <span class="comment">// "vue$": "vue/dist/vue.js"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2、在-webpack-构建的项目中，使用-Vue-进行开发"><a href="#2、在-webpack-构建的项目中，使用-Vue-进行开发" class="headerlink" title="2、在 webpack 构建的项目中，使用 Vue 进行开发"></a>2、在 webpack 构建的项目中，使用 Vue 进行开发</h2><h3 id="在普通网页中如何使用vue（复习）："><a href="#在普通网页中如何使用vue（复习）：" class="headerlink" title="在普通网页中如何使用vue（复习）："></a>在普通网页中如何使用vue（复习）：</h3><ol>
+<li><p>使用 script 标签 ，引入 vue 的包</p>
+</li>
+<li><p>在 index 页面中，创建 一个 id 为 app div 容器·</p>
+</li>
+<li><p>通过 new Vue 得到一个 vm 的实例</p>
+</li>
+</ol>
+<h3 id="在webpack-中尝试使用-Vue"><a href="#在webpack-中尝试使用-Vue" class="headerlink" title="在webpack 中尝试使用 Vue"></a>在webpack 中尝试使用 Vue</h3><ol>
+<li><p>安装vue的包：  cnpm i vue -S</p>
+</li>
+<li><p>由于 在 webpack 中，推荐使用 .vue 这个组件模板文件定义组件，所以，需要安装 能解析这种文件的 loader    cnpm i vue-loader vue-template-complier -D</p>
+</li>
+<li><p>在 main.js 中，导入 vue 模块  import Vue from ‘vue’</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>注意： 在 webpack 中， 使用 import Vue from ‘vue’ 导入的 Vue 构造函数，功能不完整，只提供了 runtime-only 的方式，并没有提供 像网页中那样的使用方式；</p>
+</li>
+<li><p>import Vue from ‘../node_modules/vue/dist/vue.js’</p>
+<p> 回顾 包的查找规则：</p>
+<ol>
+<li><p>找 项目根目录中有没有 node_modules 的文件夹</p>
+</li>
+<li><p>在 node_modules 中 根据包名，找对应的 vue 文件夹</p>
+</li>
+<li><p>在 vue 文件夹中，找 一个叫做 package.json 的包配置文件</p>
+</li>
+<li><p>在 package.json 文件中，查找 一个 main 属性【main属性指定了这个包在被加载时候，的入口文件】</p>
+</li>
+</ol>
+</li>
 </ul>
-<p><img src="http://plgod9q1n.bkt.clouddn.com/lifecycle.png" alt=""></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./lib/vue-2.4.0.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"修改msg"</span> @<span class="attr">click</span>=<span class="string">"msg='No'"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span> <span class="attr">id</span>=<span class="string">"h3"</span>&gt;</span>&#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    // 创建 Vue 实例，得到 ViewModel</span></span><br><span class="line"><span class="undefined">    var vm = new Vue(&#123;</span></span><br><span class="line"><span class="undefined">      el: '#app',</span></span><br><span class="line"><span class="undefined">      data: &#123;</span></span><br><span class="line"><span class="undefined">        msg: 'ok'</span></span><br><span class="line"><span class="undefined">      &#125;,</span></span><br><span class="line"><span class="undefined">      methods: &#123;</span></span><br><span class="line"><span class="undefined">        show() &#123;</span></span><br><span class="line"><span class="undefined">          console.log('执行了show方法')</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">      &#125;,</span></span><br><span class="line"><span class="undefined">      beforeCreate() &#123; // 这是我们遇到的第一个生命周期函数，表示实例完全被创建出来之前，会执行它</span></span><br><span class="line"><span class="undefined">        // console.log(this.msg)</span></span><br><span class="line"><span class="undefined">        // this.show()</span></span><br><span class="line"><span class="undefined">        // 注意： 在 beforeCreate 生命周期函数执行的时候，data 和 methods 中的 数据都还没有没初始化</span></span><br><span class="line"><span class="undefined">      &#125;,</span></span><br><span class="line"><span class="undefined">      created() &#123; // 这是遇到的第二个生命周期函数</span></span><br><span class="line"><span class="undefined">        // console.log(this.msg)</span></span><br><span class="line"><span class="undefined">        // this.show()</span></span><br><span class="line"><span class="undefined">        //  在 created 中，data 和 methods 都已经被初始化好了！</span></span><br><span class="line"><span class="undefined">        // 如果要调用 methods 中的方法，或者操作 data 中的数据，最早，只能在 created 中操作</span></span><br><span class="line"><span class="undefined">      &#125;,</span></span><br><span class="line"><span class="undefined">      beforeMount() &#123; // 这是遇到的第3个生命周期函数，表示 模板已经在内存中编辑完成了，但是尚未把 模板渲染到 页面中</span></span><br><span class="line"><span class="undefined">        // console.log(document.getElementById('h3').innerText)</span></span><br><span class="line"><span class="undefined">        // 在 beforeMount 执行的时候，页面中的元素，还没有被真正替换过来，只是之前写的一些模板字符串</span></span><br><span class="line"><span class="undefined">      &#125;,</span></span><br><span class="line"><span class="undefined">      mounted() &#123; // 这是遇到的第4个生命周期函数，表示，内存中的模板，已经真实的挂载到了页面中，用户已经可以看到渲染好的页面了</span></span><br><span class="line"><span class="undefined">        // console.log(document.getElementById('h3').innerText)</span></span><br><span class="line"><span class="undefined">        // 注意： mounted 是 实例创建期间的最后一个生命周期函数，当执行完 mounted 就表示，实例已经被完全创建好了，此时，如果没有其它操作的话，这个实例，就静静的 躺在我们的内存中，一动不动</span></span><br><span class="line"><span class="undefined">      &#125;,</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">      // 接下来的是运行中的两个事件</span></span><br><span class="line"><span class="undefined">      beforeUpdate() &#123; // 这时候，表示 我们的界面还没有被更新【数据被更新了吗？  数据肯定被更新了】</span></span><br><span class="line"><span class="undefined">        /* console.log('界面上元素的内容：' + document.getElementById('h3').innerText)</span></span><br><span class="line"><span class="undefined">        console.log('data 中的 msg 数据是：' + this.msg) */</span></span><br><span class="line"><span class="undefined">        // 得出结论： 当执行 beforeUpdate 的时候，页面中的显示的数据，还是旧的，此时 data 数据是最新的，页面尚未和 最新的数据保持同步</span></span><br><span class="line"><span class="undefined">      &#125;,</span></span><br><span class="line"><span class="undefined">      updated() &#123;</span></span><br><span class="line"><span class="undefined">        console.log('界面上元素的内容：' + document.getElementById('h3').innerText)</span></span><br><span class="line"><span class="undefined">        console.log('data 中的 msg 数据是：' + this.msg)</span></span><br><span class="line"><span class="undefined">        // updated 事件执行的时候，页面和 data 数据已经保持同步了，都是最新的</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;);</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><p>定义一个 .vue 结尾的组件，其中，组件有三部分组成： template script style</p>
+</li>
+<li><p>使用 import login from ‘./login.vue’ 导入这个组件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> login <span class="keyword">from</span> <span class="string">'./login.vue'</span></span><br></pre></td></tr></table></figure>
+<p>例如：导入 login 组件</p>
+</li>
+</ol>
+<ul>
+<li><p>默认，webpack 无法打包 .vue 文件，需要安装 相关的loader： </p>
+</li>
+<li><p>cnpm i vue-loader vue-template-compiler -D</p>
+</li>
+<li><p>在配置文件中，新增loader哦配置项 { test:/.vue$/, use: ‘vue-loader’ }</p>
+</li>
+</ul>
+<ol start="6">
+<li><p>创建 vm 的实例 var vm = new Vue({ el: ‘#app’, render: c =&gt; c(login) })</p>
+</li>
+<li><p>在页面中创建一个 id 为 app 的 div 元素，作为我们 vm 实例要控制的区域；</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    msg: <span class="string">'123'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// components: &#123;</span></span><br><span class="line">  <span class="comment">//   login</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">  <span class="comment">/* render: function (createElements) &#123; // 在 webpack 中，如果想要通过 vue， 把一个组件放到页面中去展示，vm 实例中的 render 函数可以实现</span></span><br><span class="line"><span class="comment">    return createElements(login)</span></span><br><span class="line"><span class="comment">  &#125; */</span></span><br><span class="line"></span><br><span class="line">  render: <span class="function"><span class="params">c</span> =&gt;</span> c(login)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>main.js代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> login <span class="keyword">from</span> <span class="string">'./login.vue'</span></span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    msg: <span class="string">'123'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  render: <span class="function"><span class="params">c</span> =&gt;</span> c(login)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="三、export-default-和export"><a href="#三、export-default-和export" class="headerlink" title="三、export default 和export"></a>三、export default 和export</h1><p>这是 Node 中向外暴露成员的形式：</p>
+<p>module.exports = {}</p>
+<p>在 ES6中，也通过 规范的形式，规定了 ES6 中如何 导入 和 导出 模块</p>
+<p>ES6中导入模块，使用   import 模块名称 from ‘模块标识符’    import ‘表示路径’</p>
+<p>在 ES6 中，使用 export default 和 export 向外暴露成员：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> info</span><br></pre></td></tr></table></figure>
+<p>注意： export default 向外暴露的成员，可以使用任意的变量来接收</p>
+<p>注意： 在一个模块中，export default 只允许向外暴露1次</p>
+<p>注意： 在一个模块中，可以同时使用 export default 和 export 向外暴露成员</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> title = <span class="string">'小星星'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> content = <span class="string">'哈哈哈'</span></span><br></pre></td></tr></table></figure>
+<p>注意： 使用 export 向外暴露的成员，只能使用 { } 的形式来接收，这种形式，叫做 【按需导出】</p>
+<p>注意： export 可以向外暴露多个成员， 同时，如果某些成员，我们在 import 的时候，不需要，则可以 不在 {}  中定义</p>
+<p>注意： 使用 export 导出的成员，必须严格按照 导出时候的名称，来使用  {}  按需接收；</p>
+<p>注意： 使用 export 导出的成员，如果 就想 换个 名称来接收，可以使用 as 来起别名；</p>
+<p>test.js：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> info = &#123;</span><br><span class="line">  name: <span class="string">'zs'</span>,</span><br><span class="line">  age: <span class="number">20</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> info</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> title = <span class="string">'小星星'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> content = <span class="string">'哈哈哈'</span></span><br></pre></td></tr></table></figure>
+<p>main.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> m222, &#123; title <span class="keyword">as</span> title123, content &#125; <span class="keyword">from</span> <span class="string">'./test.js'</span></span><br><span class="line"><span class="built_in">console</span>.log(m222)</span><br><span class="line"><span class="built_in">console</span>.log(title123 + <span class="string">' --- '</span> + content)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -588,8 +641,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/16/vuex/" rel="next" title="vuex">
-                <i class="fa fa-chevron-left"></i> vuex
+              <a href="/2019/02/15/java学习（7）List、Set、Map/" rel="next" title="java学习（7）List、Set、Map">
+                <i class="fa fa-chevron-left"></i> java学习（7）List、Set、Map
               </a>
             
           </div>
@@ -597,10 +650,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/21/github-pages-hexo-next-博客搭建/" rel="prev" title="github pages-hexo-next 博客搭建">
-                github pages-hexo-next 博客搭建 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -786,7 +835,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue实例的生命周期"><span class="nav-number">1.</span> <span class="nav-text">vue实例的生命周期</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、render方法渲染组件"><span class="nav-number">1.</span> <span class="nav-text">一、render方法渲染组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、在页面中渲染基本的组件"><span class="nav-number">1.1.</span> <span class="nav-text">1、在页面中渲染基本的组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、在页面中使用render函数渲染组件"><span class="nav-number">1.2.</span> <span class="nav-text">2、在页面中使用render函数渲染组件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、webpack导入vue"><span class="nav-number">2.</span> <span class="nav-text">二、webpack导入vue</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、webpack-config-js"><span class="nav-number">2.1.</span> <span class="nav-text">1、webpack.config.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、在-webpack-构建的项目中，使用-Vue-进行开发"><span class="nav-number">2.2.</span> <span class="nav-text">2、在 webpack 构建的项目中，使用 Vue 进行开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在普通网页中如何使用vue（复习）："><span class="nav-number">2.2.1.</span> <span class="nav-text">在普通网页中如何使用vue（复习）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在webpack-中尝试使用-Vue"><span class="nav-number">2.2.2.</span> <span class="nav-text">在webpack 中尝试使用 Vue</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、export-default-和export"><span class="nav-number">3.</span> <span class="nav-text">三、export default 和export</span></a></li></ol></div>
             
 
           </div>

@@ -113,12 +113,12 @@
 <meta property="og:site_name" content="xinyuan&#39;s Blog">
 <meta property="og:description" content="vue组件组件概念什么是组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可；组件化和模块化的不同：  模块化： 是从代码逻辑的角度进行划分的；方便代码分层开发，保证每个功能模块的职能单一； 组件化： 是从UI界面的角度进行划分的；前端的组件化，方便UI组件的重用；  全局vue组件定义1、使用 V">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://plgod9q1n.bkt.clouddn.com/%E7%BB%84%E4%BB%B6%E6%A1%88%E4%BE%8B-%E8%AF%84%E8%AE%BA%E6%88%AA%E5%9B%BE.PNG">
-<meta property="og:updated_time" content="2019-02-01T10:12:10.453Z">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/vue%E5%AD%A6%E4%B9%A0/%E8%AF%84%E8%AE%BA%E5%8F%91%E8%A1%A8%E6%98%BE%E7%A4%BA%E6%95%88%E6%9E%9C.PNG">
+<meta property="og:updated_time" content="2019-02-16T16:35:23.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="（7）vue组件">
 <meta name="twitter:description" content="vue组件组件概念什么是组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可；组件化和模块化的不同：  模块化： 是从代码逻辑的角度进行划分的；方便代码分层开发，保证每个功能模块的职能单一； 组件化： 是从UI界面的角度进行划分的；前端的组件化，方便UI组件的重用；  全局vue组件定义1、使用 V">
-<meta name="twitter:image" content="http://plgod9q1n.bkt.clouddn.com/%E7%BB%84%E4%BB%B6%E6%A1%88%E4%BE%8B-%E8%AF%84%E8%AE%BA%E6%88%AA%E5%9B%BE.PNG">
+<meta name="twitter:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/vue%E5%AD%A6%E4%B9%A0/%E8%AF%84%E8%AE%BA%E5%8F%91%E8%A1%A8%E6%98%BE%E7%A4%BA%E6%95%88%E6%9E%9C.PNG">
 
 
 
@@ -428,12 +428,24 @@
                 
               
 
-              <time title="创建时间：2019-02-01 10:13:06 / 修改时间：18:12:10" itemprop="dateCreated datePublished" datetime="2019-02-01T10:13:06+08:00">2019-02-01</time>
+              <time title="创建时间：2019-02-01 10:13:06" itemprop="dateCreated datePublished" datetime="2019-02-01T10:13:06+08:00">2019-02-01</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-17 00:35:23" itemprop="dateModified" datetime="2019-02-17T00:35:23+08:00">2019-02-17</time>
               
             
           </span>
@@ -606,7 +618,7 @@
 3.3 如果获取到的 localStorage 中的 评论字符串，为空不存在， 则  可以 返回一个 &apos;[]&apos;  让 JSON.parse 去转换
 3.4  把 最新的  评论列表数组，再次调用 JSON.stringify 转为  数组字符串，然后调用    localStorage.setItem()
 </code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">  &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">  &lt;script src="./</span>lib/vue<span class="number">-2.4</span><span class="number">.0</span>.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">  &lt;link rel="</span>stylesheet<span class="string">" href="</span>./lib/bootstrap<span class="number">-3.3</span><span class="number">.7</span>.css<span class="string">"&gt;</span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">  &lt;div id="</span>app<span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;cmt-box @func="</span>loadComments<span class="string">"&gt;&lt;/cmt-box&gt;</span></span><br><span class="line"><span class="string">    &lt;ul class="</span>list-group<span class="string">"&gt;</span></span><br><span class="line"><span class="string">      &lt;li class="</span>list-group-item<span class="string">" v-for="</span>item <span class="keyword">in</span> list<span class="string">" :key="</span>item.id<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        &lt;span class="</span>badge<span class="string">"&gt;评论人： &#123;&#123; item.user &#125;&#125;&lt;/span&gt;</span></span><br><span class="line"><span class="string">        &#123;&#123; item.content &#125;&#125;</span></span><br><span class="line"><span class="string">      &lt;/li&gt;</span></span><br><span class="line"><span class="string">    &lt;/ul&gt;</span></span><br><span class="line"><span class="string">  &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  &lt;template id="</span>tmpl<span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">      &lt;div class="</span>form-group<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        &lt;label&gt;评论人：&lt;/label&gt;</span></span><br><span class="line"><span class="string">        &lt;input type="</span>text<span class="string">" class="</span>form-control<span class="string">" v-model="</span>user<span class="string">"&gt;</span></span><br><span class="line"><span class="string">      &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">      &lt;div class="</span>form-group<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        &lt;label&gt;评论内容：&lt;/label&gt;</span></span><br><span class="line"><span class="string">        &lt;textarea class="</span>form-control<span class="string">" v-model="</span>content<span class="string">"&gt;&lt;/textarea&gt;</span></span><br><span class="line"><span class="string">      &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">      &lt;div class="</span>form-group<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        &lt;input type="</span>button<span class="string">" value="</span>发表评论<span class="string">" class="</span>btn btn-primary<span class="string">" @click="</span>postComment<span class="string">"&gt;</span></span><br><span class="line"><span class="string">      &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  &lt;/template&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  &lt;script&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    var commentBox = &#123;</span></span><br><span class="line"><span class="string">      data() &#123;</span></span><br><span class="line"><span class="string">        return &#123;</span></span><br><span class="line"><span class="string">          user: '',</span></span><br><span class="line"><span class="string">          content: ''</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">      &#125;,</span></span><br><span class="line"><span class="string">      template: '#tmpl',</span></span><br><span class="line"><span class="string">      methods: &#123;</span></span><br><span class="line"><span class="string">        postComment() &#123; // 发表评论的方法         </span></span><br><span class="line"><span class="string">          var comment = &#123; id: Date.now(), user: this.user, content: this.content &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">          // 从 localStorage 中获取所有的评论</span></span><br><span class="line"><span class="string">          var list = JSON.parse(localStorage.getItem('cmts') || '[]')</span></span><br><span class="line"><span class="string">          list.unshift(comment)</span></span><br><span class="line"><span class="string">          // 重新保存最新的 评论数据</span></span><br><span class="line"><span class="string">          localStorage.setItem('cmts', JSON.stringify(list))</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">          this.user = this.content = ''</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">          // this.loadComments() // ?????</span></span><br><span class="line"><span class="string">          this.$emit('func')</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 创建 Vue 实例，得到 ViewModel</span></span><br><span class="line"><span class="string">    var vm = new Vue(&#123;</span></span><br><span class="line"><span class="string">      el: '#app',</span></span><br><span class="line"><span class="string">      data: &#123;</span></span><br><span class="line"><span class="string">        list: [</span></span><br><span class="line"><span class="string">          &#123; id: Date.now(), user: '李白', content: '天生我材必有用' &#125;,</span></span><br><span class="line"><span class="string">          &#123; id: Date.now(), user: '江小白', content: '劝君更尽一杯酒' &#125;,</span></span><br><span class="line"><span class="string">          &#123; id: Date.now(), user: '小马', content: '我姓马， 风吹草低见牛羊的马' &#125;</span></span><br><span class="line"><span class="string">        ]</span></span><br><span class="line"><span class="string">      &#125;,</span></span><br><span class="line"><span class="string">      beforeCreate()&#123; // 注意：这里不能调用 loadComments 方法，因为在执行这个钩子函数的时候，data 和 methods 都还没有被初始化好</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">      &#125;,</span></span><br><span class="line"><span class="string">      created()&#123;</span></span><br><span class="line"><span class="string">        this.loadComments()</span></span><br><span class="line"><span class="string">      &#125;,</span></span><br><span class="line"><span class="string">      methods: &#123;</span></span><br><span class="line"><span class="string">        loadComments() &#123; // 从本地的 localStorage 中，加载评论列表</span></span><br><span class="line"><span class="string">          var list = JSON.parse(localStorage.getItem('cmts') || '[]')</span></span><br><span class="line"><span class="string">          this.list = list</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">      &#125;,</span></span><br><span class="line"><span class="string">      components: &#123;</span></span><br><span class="line"><span class="string">        'cmt-box': commentBox</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;);</span></span><br><span class="line"><span class="string">  &lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></table></figure>
-<p>结果展示：<br><img src="http://plgod9q1n.bkt.clouddn.com/%E7%BB%84%E4%BB%B6%E6%A1%88%E4%BE%8B-%E8%AF%84%E8%AE%BA%E6%88%AA%E5%9B%BE.PNG" alt=""></p>
+<p>结果展示：<br><img src="https://github.com/xinyuan960205/pic_resource/raw/master/vue%E5%AD%A6%E4%B9%A0/%E8%AF%84%E8%AE%BA%E5%8F%91%E8%A1%A8%E6%98%BE%E7%A4%BA%E6%95%88%E6%9E%9C.PNG" alt=""></p>
 <h2 id="ref获取dom元素和组件"><a href="#ref获取dom元素和组件" class="headerlink" title="ref获取dom元素和组件"></a>ref获取dom元素和组件</h2><p> <code>this.$refs.&quot;组件名称&quot;.方法/变量</code></p>
 <p>HTML：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">id</span>=<span class="string">"myh3"</span> <span class="attr">ref</span>=<span class="string">"myh3"</span>&gt;</span>哈哈哈， 今天天气太好了！！！<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">login</span> <span class="attr">ref</span>=<span class="string">"mylogin"</span>&gt;</span><span class="tag">&lt;/<span class="name">login</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -670,8 +682,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/01/（8）router路由/" rel="next" title="（8）vue路由">
-                <i class="fa fa-chevron-left"></i> （8）vue路由
+              <a href="/2019/01/31/（6）vue-动画/" rel="next" title="（6）vue 动画&过渡">
+                <i class="fa fa-chevron-left"></i> （6）vue 动画&过渡
               </a>
             
           </div>
@@ -680,8 +692,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/06/java学习（4）内部类和文件输入输出/" rel="prev" title="java学习（4）内部类和文件输入输出">
-                java学习（4）内部类和文件输入输出 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/01/（8）router路由/" rel="prev" title="（8）vue路由">
+                （8）vue路由 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -754,7 +766,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -779,7 +791,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
