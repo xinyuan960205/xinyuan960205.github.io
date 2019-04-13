@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="git版本控制工具一、git常用命令Git Clone用于初始检出远程git仓库。默认克隆远程git仓库的默认分支。 Git Commit用于提交修改。Git commit在概念上就是代码库的一个快照，是Git版本管理的基本单元。多个git仓库同步的基本内容也是commit。一般来说，git库的commit提交不会丢失。 注意，git commit只是提交到本地，还需要git push才能同步到远">
+<meta name="keywords" content="学习小记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git使用">
+<meta property="og:url" content="http://yoursite.com/2019/04/13/学习小记/git使用/index.html">
+<meta property="og:site_name" content="xinyuan&#39;s Blog">
+<meta property="og:description" content="git版本控制工具一、git常用命令Git Clone用于初始检出远程git仓库。默认克隆远程git仓库的默认分支。 Git Commit用于提交修改。Git commit在概念上就是代码库的一个快照，是Git版本管理的基本单元。多个git仓库同步的基本内容也是commit。一般来说，git库的commit提交不会丢失。 注意，git commit只是提交到本地，还需要git push才能同步到远">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B7%A5%E4%BD%9C%E6%B5%81.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%85%8B%E9%9A%86%E4%B8%AD%E5%A4%AE%E4%BB%93%E5%BA%93.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B0%8F%E6%98%8E%E5%BC%80%E5%8F%91.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B0%8F%E7%BA%A2%E5%BC%80%E5%8F%91.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B0%8F%E6%98%8E%E5%8F%91%E5%B8%83.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B0%8F%E7%BA%A2%E8%AF%95%E7%9D%80%E5%8F%91%E5%B8%83.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B0%8F%E7%BA%A2rebase.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B0%8F%E7%BA%A2%E5%90%8C%E6%AD%A5.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/学习小记/git/集中式小红解决冲突.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B0%8F%E7%BA%A2rebase2.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B0%8F%E7%BA%A2%E6%88%90%E5%8A%9F%E5%8F%91%E5%B8%83.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B7%A5%E4%BD%9C%E6%B5%81.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E7%BA%A2%E5%BC%80%E5%8F%911.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E7%BA%A2%E5%8D%88%E9%A5%AD.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E7%BA%A2%E5%AE%8C%E6%88%90.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E9%BB%91%E6%94%B6%E5%88%B0.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E7%BA%A2%E4%BF%AE%E6%94%B9.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E7%BA%A2%E5%8F%91%E5%B8%83.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%B7%A5%E4%BD%9C%E6%B5%81.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%8E%86%E5%8F%B2%E5%88%86%E6%94%AF.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%8F%91%E5%B8%83%E5%88%86%E6%94%AF.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E7%BB%B4%E6%8A%A4%E5%88%86%E6%94%AF.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%BC%80%E5%8F%91%E6%96%B0%E5%8A%9F%E8%83%BD.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%B0%8F%E7%BA%A2%E5%AE%8C%E6%88%90%E5%BC%80%E5%8F%91.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%B0%8F%E7%BA%A2%E5%87%86%E5%A4%87%E5%8F%91%E5%B8%83.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%B0%8F%E7%BA%A2%E5%AE%8C%E6%88%90%E5%8F%91%E5%B8%83.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%8F%91%E7%8E%B0bug.png">
+<meta property="og:updated_time" content="2019-04-13T15:46:08.687Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git使用">
+<meta name="twitter:description" content="git版本控制工具一、git常用命令Git Clone用于初始检出远程git仓库。默认克隆远程git仓库的默认分支。 Git Commit用于提交修改。Git commit在概念上就是代码库的一个快照，是Git版本管理的基本单元。多个git仓库同步的基本内容也是commit。一般来说，git库的commit提交不会丢失。 注意，git commit只是提交到本地，还需要git push才能同步到远">
+<meta name="twitter:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B7%A5%E4%BD%9C%E6%B5%81.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/13/学习小记/git使用/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>git使用 | xinyuan's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+   <a href="https://github.com/xinyuan960205" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+      </div>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xinyuan's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">hello world</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/学习小记/git使用/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xinyuan">
+      <meta itemprop="description" content="记录分享技术文档、工作生活日志等">
+      <meta itemprop="image" content="http://ww2.sinaimg.cn/large/7f318987jw1f72m7gv450j205k05kmx1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xinyuan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">git使用
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-13 18:04:15 / 修改时间：23:46:08" itemprop="dateCreated datePublished" datetime="2019-04-13T18:04:15+08:00">2019-04-13</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/学习小记/" itemprop="url" rel="index"><span itemprop="name">学习小记</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/学习小记/学习小记/" itemprop="url" rel="index"><span itemprop="name">学习小记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="git版本控制工具"><a href="#git版本控制工具" class="headerlink" title="git版本控制工具"></a>git版本控制工具</h1><h2 id="一、git常用命令"><a href="#一、git常用命令" class="headerlink" title="一、git常用命令"></a>一、git常用命令</h2><h3 id="Git-Clone"><a href="#Git-Clone" class="headerlink" title="Git Clone"></a>Git Clone</h3><p>用于初始检出远程git仓库。默认克隆远程git仓库的默认分支。</p>
+<h3 id="Git-Commit"><a href="#Git-Commit" class="headerlink" title="Git Commit"></a>Git Commit</h3><p>用于提交修改。Git commit在概念上就是代码库的一个快照，是Git版本管理的基本单元。多个git仓库同步的基本内容也是commit。一般来说，git库的commit提交不会丢失。</p>
+<p>注意，git commit只是提交到本地，还需要git push才能同步到远程git仓库。</p>
+<h3 id="Git-Pull"><a href="#Git-Pull" class="headerlink" title="Git Pull"></a>Git Pull</h3><p>从远程git仓库拉取修改。拉取的内容主要包括Git远程仓库中新的提交，新建的分支等。</p>
+<h3 id="Git-Push"><a href="#Git-Push" class="headerlink" title="Git Push"></a>Git Push</h3><p>向远程git仓库推送本地的修改。推送的内容主要包括本地仓库中新的提交，新建的分支等。</p>
+<h3 id="Git-Branch"><a href="#Git-Branch" class="headerlink" title="Git Branch"></a>Git Branch</h3><p>在git仓库中建立分支。在Git设计中，分支是指向某个提交的指针。这种实现非常轻量级，因此可以支持频繁的创建分支、合并分支。具体请参考Git工作流程。</p>
+<h3 id="Git-Merge"><a href="#Git-Merge" class="headerlink" title="Git Merge"></a>Git Merge</h3><p>合并git仓库中的两个分支。</p>
+<h3 id="Git-Tag"><a href="#Git-Tag" class="headerlink" title="Git Tag"></a>Git Tag</h3><p>在git仓库的某个分支的某个提交上打上标签，一般标签为发布版本号，用于标记正式发布。</p>
+<h3 id="Git-Log"><a href="#Git-Log" class="headerlink" title="Git Log"></a>Git Log</h3><p>查看git仓库的提交历史。</p>
+<h3 id="Git-Status"><a href="#Git-Status" class="headerlink" title="Git Status"></a>Git Status</h3><p>查看本地Git工作目录中的变化情况。</p>
+<h3 id="Git-Stash"><a href="#Git-Stash" class="headerlink" title="Git Stash"></a>Git Stash</h3><p>用于在进行git操作之前保存本地（未经提交的）修改。</p>
+<h2 id="二、git提交"><a href="#二、git提交" class="headerlink" title="二、git提交"></a>二、git提交</h2><h3 id="Git提交（Commit）"><a href="#Git提交（Commit）" class="headerlink" title="Git提交（Commit）"></a>Git提交（Commit）</h3><p>在Git版本管理看来， Git提交（commit）就是代码库的一个快照，是版本管理的基本单元。在开发人员看来，Git提交（commit）就是一个不可分割的项目/开发任务步骤，这个步骤包括一组对程序/文档的修改（Changeset）。而提交注释（Commit Message）将Git提交与该提交的任务语义关联起来。这也是为什么Git强制要求必须写提交注释的原因。</p>
+<blockquote>
+<p>必须在Git提交注释中明确地说明Git提交完成的任务步骤。</p>
+<p>也就是说，不允许出现无信息、无意义的提交注释，例如“小修改”，“修改XXX文件”（因为修改的文件在提交中本来就能看见，因此这个注释没有提供信息）。</p>
+</blockquote>
+<h3 id="Git提交的时机和频率"><a href="#Git提交的时机和频率" class="headerlink" title="Git提交的时机和频率"></a>Git提交的时机和频率</h3><h4 id="提交和推送"><a href="#提交和推送" class="headerlink" title="提交和推送"></a>提交和推送</h4><p>请注意，提交（commit）只是提交到本地git仓库，还需要使用推送（push）到远程git仓库中。</p>
+<p>一般来说，修改和提交应该共享给项目组其他成员，也就是说，</p>
+<blockquote>
+<p>应该尽可能在提交（commit）之后马上推送（push）。</p>
+<p>除非是在脱机工作（例如出差没有网络，或者无法访问公司内部的git服务器）。这时则允许只提交（commit）不推送（push），等能够连上git服务器后，再将提交都同步到远程git仓库。</p>
+</blockquote>
+<h4 id="提交的时机"><a href="#提交的时机" class="headerlink" title="提交的时机"></a>提交的时机</h4><p>按照任务提交，每完成一个任务，必须提交一次。尽量不把多个任务的代码修改一起提交。</p>
+<p>必须提交能通过编译代码。</p>
+<p>最好提交通过单元测试的代码。</p>
+<h4 id="提交的频率"><a href="#提交的频率" class="headerlink" title="提交的频率"></a>提交的频率</h4><p> 提交的尽可能频繁。但是需要遵循提交时机的原则。也就是说，</p>
+<blockquote>
+<p>只要可以提交，就应该提交。</p>
+</blockquote>
+<h2 id="三、git工作流程"><a href="#三、git工作流程" class="headerlink" title="三、git工作流程"></a>三、git工作流程</h2><h3 id="集中式工作流-Centralized-Workflow"><a href="#集中式工作流-Centralized-Workflow" class="headerlink" title="集中式工作流(Centralized Workflow)"></a>集中式工作流(Centralized Workflow)</h3><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B7%A5%E4%BD%9C%E6%B5%81.png" alt=""></p>
+<p>首先，团队可以用和<code>Subversion</code>完全相同的方式来开发项目，即使用集中式工作流(Centralized Workflow)来进行开发。</p>
+<blockquote>
+<p>集中式工作流只有在项目规模很小且项目团队人员很少的情况下才允许采用。采用时应在项目策划中申请公司批准。</p>
+</blockquote>
+<p>但使用<code>Git</code>加强开发的工作流，<code>Git</code>比<code>SVN有</code>几个优势 ：</p>
+<p>首先，每个开发可以有属于自己的整个工程的本地拷贝。隔离的环境让各个开发者的工作和项目的其他部分（修改）独立开来 —— 即自由地提交到自己的本地仓库，先完全忽略上游的开发，直到方便的时候再把修改反馈上去。</p>
+<p>其次，<code>Git</code>提供了强壮的分支和合并模型。不像<code>SVN</code>，<code>Git</code>的分支设计成可以做为一种用来在仓库之间集成代码和分享修改的『失败安全』的机制。</p>
+<h4 id="工作方式"><a href="#工作方式" class="headerlink" title="工作方式"></a>工作方式</h4><p>像<code>Subversion</code>一样，集中式工作流以中央仓库作为项目所有修改的单点实体。相比<code>SVN</code>缺省的开发分支<code>trunk</code>，<code>Git</code>叫做<code>master</code>，所有修改提交到这个分支上。该工作流只用到<code>master</code>这一个分支。</p>
+<p>开发者开始先克隆中央仓库。在自己的项目拷贝中，像<code>SVN</code>一样的编辑文件和提交修改；但修改是存在本地的，和中央仓库是完全隔离的。开发者可以把和上游的同步延后到一个方便时间点。</p>
+<p>要发布修改到正式项目中，开发者要把本地<code>master</code>分支的修改『推（push）』到中央仓库中。这相当于<code>svn commit</code>操作，但<code>push</code>操作会把所有还不在中央仓库的本地提交都推上去。</p>
+<p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F.png" alt=""></p>
+<h4 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h4><p>中央仓库代表了正式项目，所以提交历史应该被尊重且是稳定不变的。如果开发者本地的提交历史和中央仓库有分歧，<code>Git</code>会拒绝<code>push</code>提交否则会覆盖已经在中央库的正式提交。</p>
+<p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3.png" alt=""></p>
+<p>在开发者提交自己功能修改到中央库前，需要先<code>fetch</code>在中央库的新增提交，<code>rebase</code>自己提交到中央库提交历史之上。这样做的意思是在说，『我要把自己的修改加到别人已经完成的修改上。』最终的结果是一个完美的线性历史，就像以前的<code>SVN</code>的工作流中一样。</p>
+<p>如果本地修改和上游提交有冲突，<code>Git</code>会暂停<code>rebase</code>过程，给你手动解决冲突的机会。<code>Git</code>解决合并冲突，用和生成提交一样的<code>git status</code>和<code>git add</code>命令，很一致方便。还有一点，如果解决冲突时遇到麻烦，<code>Git</code>可以很简单中止整个<code>rebase</code>操作，重来一次（或者让别人来帮助解决）</p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p>让我们一起逐步分解来看看一个常见的小团队如何用这个工作流来协作的。有两个开发者小明和小红，看他们是如何开发自己的功能并提交到中央仓库上的。</p>
+<h5 id="有人先初始化好中央仓库"><a href="#有人先初始化好中央仓库" class="headerlink" title="有人先初始化好中央仓库"></a>有人先初始化好中央仓库</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93.png" alt=""></p>
+<p>第一步，有人在服务器上创建好中央仓库。如果是新项目，你可以初始化一个空仓库；否则你要导入已有的<code>Git</code>或<code>SVN</code>仓库。</p>
+<p>中央仓库应该是个裸仓库（<code>bare repository</code>），即没有工作目录（<code>working directory</code>）的仓库。可以用下面的命令创建：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh user@host</span><br><span class="line">git init --bare /path/to/repo.git</span><br></pre></td></tr></table></figure>
+<p>确保写上有效的<code>user</code>（<code>SSH</code>的用户名），<code>host</code>（服务器的域名或IP地址），<code>/path/to/repo.git</code>（你想存放仓库的位置）。注意，为了表示是一个裸仓库，按照约定加上<code>.git</code>扩展名到仓库名上。</p>
+<h5 id="所有人克隆中央仓库"><a href="#所有人克隆中央仓库" class="headerlink" title="所有人克隆中央仓库"></a>所有人克隆中央仓库</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%85%8B%E9%9A%86%E4%B8%AD%E5%A4%AE%E4%BB%93%E5%BA%93.png" alt=""></p>
+<p>下一步，各个开发者创建整个项目的本地拷贝。通过<code>git clone</code>命令完成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone ssh://user@host/path/to/repo.git</span><br></pre></td></tr></table></figure>
+<p>基于你后续会持续和克隆的仓库做交互的假设，克隆仓库时<code>Git</code>会自动添加远程别名<code>origin</code>指回『父』仓库。</p>
+<h5 id="小明开发功能"><a href="#小明开发功能" class="headerlink" title="小明开发功能"></a>小明开发功能</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B0%8F%E6%98%8E%E5%BC%80%E5%8F%91.png" alt=""></p>
+<p>在小明的本地仓库中，他使用标准的<code>Git</code>过程开发功能：编辑、暂存（<code>Stage</code>）和提交。如果你不熟悉暂存区（<code>Staging Area</code>），这里说明一下：<strong>暂存区</strong>的用来准备一个提交，但可以不用把工作目录中所有的修改内容都包含进来。这样你可以创建一个高度聚焦的提交，尽管你本地修改很多内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git status # 查看本地仓库的修改状态</span><br><span class="line">git add # 暂存文件</span><br><span class="line">git commit # 提交文件</span><br></pre></td></tr></table></figure>
+<p>请记住，因为这些命令生成的是本地提交，小明可以按自己需求反复操作多次，而不用担心中央仓库上有了什么操作。对需要多个更简单更原子分块的大功能，这个做法是很有用的。</p>
+<h5 id="小红开发功能"><a href="#小红开发功能" class="headerlink" title="小红开发功能"></a>小红开发功能</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B0%8F%E7%BA%A2%E5%BC%80%E5%8F%91.png" alt=""></p>
+<p>与此同时，小红在自己的本地仓库中用相同的编辑、暂存和提交过程开发功能。和小明一样，她也不关心中央仓库有没有新提交；当然更不关心小明在他的本地仓库中的操作，因为所有本地仓库都是私有的。</p>
+<h5 id="小明发布功能"><a href="#小明发布功能" class="headerlink" title="小明发布功能"></a>小明发布功能</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B0%8F%E6%98%8E%E5%8F%91%E5%B8%83.png" alt=""></p>
+<p>一旦小明完成了他的功能开发，会发布他的本地提交到中央仓库中，这样其它团队成员可以看到他的修改。他可以用下面的<code>git push</code>命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<p>注意，<code>origin</code>是在小明克隆仓库时<code>Git</code>创建的远程中央仓库别名。<code>master</code>参数告诉<code>Git</code>推送的分支。由于中央仓库自从小明克隆以来还没有被更新过，所以<code>push</code>操作不会有冲突，成功完成。</p>
+<h5 id="小红试着发布功能"><a href="#小红试着发布功能" class="headerlink" title="小红试着发布功能"></a>小红试着发布功能</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B0%8F%E7%BA%A2%E8%AF%95%E7%9D%80%E5%8F%91%E5%B8%83.png" alt=""></p>
+<p>一起来看看在小明发布修改后，小红<code>push</code>修改会怎么样？她使用完全一样的<code>push</code>命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<p>但她的本地历史已经和中央仓库有分岐了，<code>Git</code>拒绝操作并给出下面很长的出错消息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">error: failed to push some refs to &apos;/path/to/repo.git&apos;</span><br><span class="line">hint: Updates were rejected because the tip of your current branch is behind</span><br><span class="line">hint: its remote counterpart. Merge the remote changes (e.g. &apos;git pull&apos;)</span><br><span class="line">hint: before pushing again.</span><br><span class="line">hint: See the &apos;Note about fast-forwards&apos; in &apos;git push --help&apos; for details.</span><br></pre></td></tr></table></figure>
+<p>这避免了小红覆写正式的提交。她要先<code>pull</code>小明的更新到她的本地仓库合并上她的本地修改后，再重试。</p>
+<h5 id="小红在小明的提交之上rebase"><a href="#小红在小明的提交之上rebase" class="headerlink" title="小红在小明的提交之上rebase"></a>小红在小明的提交之上rebase</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B0%8F%E7%BA%A2rebase.png" alt=""></p>
+<p>小红用<a href="https://www.atlassian.com/git/tutorial/remote-repositories#!pull" target="_blank" rel="noopener"><code>git pull</code></a>合并上游的修改到自己的仓库中。这条命令类似<code>svn update</code>——拉取所有上游提交命令到小红的本地仓库，并尝试和她的本地修改合并：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull --rebase origin master</span><br></pre></td></tr></table></figure>
+<p><code>--rebase</code>选项告诉<code>Git</code>把小红的提交移到同步了中央仓库修改后的<code>master</code>分支的顶部，如下图所示：</p>
+<p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B0%8F%E7%BA%A2%E5%90%8C%E6%AD%A5.png" alt=""></p>
+<p>如果你忘加了这个选项，<code>pull</code>操作仍然可以完成，但每次<code>pull</code>操作要同步中央仓库中别人修改时，提交历史会以一个多余的『合并提交』结尾。对于集中式工作流，最好是使用<code>rebase</code>而不是生成一个合并提交。</p>
+<h5 id="小红解决合并冲突"><a href="#小红解决合并冲突" class="headerlink" title="小红解决合并冲突"></a>小红解决合并冲突</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/学习小记/git/集中式小红解决冲突.png" alt=""></p>
+<p><code>rebase</code>操作过程是把本地提交一次一个地迁移到更新了的中央仓库<code>master</code>分支之上。这意味着可能要解决在迁移某个提交时出现的合并冲突，而不是解决包含了所有提交的大型合并时所出现的冲突。这样的方式让你尽可能保持每个提交的聚焦和项目历史的整洁。反过来，简化了哪里引入<code>Bug</code>的分析，如果有必要，回滚修改也可以做到对项目影响最小。</p>
+<p>如果小红和小明的功能是相关的，不大可能在<code>rebase</code>过程中有冲突。如果有，<code>Git</code>在合并有冲突的提交处暂停<code>rebase</code>过程，输出下面的信息并带上相关的指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CONFLICT (content): Merge conflict in</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B0%8F%E7%BA%A2rebase2.png" alt=""></p>
+<p><code>Git</code>很赞的一点是，任何人可以解决他自己的冲突。在这个例子中，小红可以简单的运行<a href="https://www.atlassian.com/git/tutorial/git-basics#!status" target="_blank" rel="noopener"><code>git status</code></a>命令来查看哪里有问题。冲突文件列在<code>Unmerged paths</code>（未合并路径）一节中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Unmerged paths:# (use &quot;git reset HEAD &lt;some-file&gt;...&quot; to unstage)</span><br><span class="line"># (use &quot;git add/rm &lt;some-file&gt;...&quot; as appropriate to mark resolution)</span><br><span class="line">#</span><br><span class="line"># both modified: &lt;some-file&gt;</span><br></pre></td></tr></table></figure>
+<p>接着小红编辑这些文件。修改完成后，用老套路暂存这些文件，并让<a href="https://www.atlassian.com/git/tutorial/rewriting-git-history#!rebase" target="_blank" rel="noopener"><code>git rebase</code></a>完成剩下的事：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add</span><br><span class="line">git rebase --continue</span><br></pre></td></tr></table></figure>
+<p>要做的就这些了。<code>Git</code>会继续一个一个地合并后面的提交，如其它的提交有冲突就重复这个过程。</p>
+<p>如果你碰到了冲突，但发现搞不定，不要惊慌。只要执行下面这条命令，就可以回到你执行<code>git pull --rebase</code>命令前的样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase --abort</span><br></pre></td></tr></table></figure>
+<h5 id="小红成功发布功能"><a href="#小红成功发布功能" class="headerlink" title="小红成功发布功能"></a>小红成功发布功能</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B0%8F%E7%BA%A2%E6%88%90%E5%8A%9F%E5%8F%91%E5%B8%83.png" alt=""></p>
+<p>小红完成和中央仓库的同步后，就能成功发布她的修改了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<h5 id="下一站"><a href="#下一站" class="headerlink" title="下一站"></a>下一站</h5><p>如你所见，仅使用几个<code>Git</code>命令我们就可以模拟出传统<code>Subversion</code>开发环境。对于要从<code>SVN</code>迁移过来的团队来说这太好了，但没有发挥出<code>Git</code>分布式本质的优势。</p>
+<p>如果你的团队适应了集中式工作流，但想要更流畅的协作效果，绝对值得探索一下功能分支工作流的收益。通过为一个功能分配一个专门的分支，能够做到一个新增功能集成到正式项目之前对新功能进行深入讨论。</p>
+<h3 id="功能分支工作流（Feature-Branch-Workflow）"><a href="#功能分支工作流（Feature-Branch-Workflow）" class="headerlink" title="功能分支工作流（Feature Branch Workflow）"></a>功能分支工作流（Feature Branch Workflow）</h3><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B7%A5%E4%BD%9C%E6%B5%81.png" alt=""></p>
+<p>一旦掌握了集中式工作流，在开发过程中可以很简单地加上功能分支，用来鼓励开发者之间协作和简化交流。理解功能分支工作流是掌握Gitflow工作流的基础，请开发人员务必掌握。</p>
+<p>功能分支工作流背后的核心思路是所有的功能开发应该在一个专门的分支，而不是在<code>master</code>分支上。这个隔离可以方便多个开发者在各自的功能上开发而不会弄乱主干代码。另外，也保证了<code>master</code>分支的代码一定不会是有问题的，极大有利于集成环境。</p>
+<p>功能开发隔离也让<code>pull requests</code>工作流成为可能，<code>pull requests</code>工作流能为每个分支发起一个讨论，在分支合入正式项目之前，给其它开发者有表示赞同的机会。另外，如果你在功能开发中有问题卡住了，可以开一个<code>pull requests</code>来向同学们征求建议。这些做法的重点就是，<code>pull requests</code>让团队成员之间互相评论工作变得非常方便！</p>
+<h4 id="工作方式-1"><a href="#工作方式-1" class="headerlink" title="工作方式"></a>工作方式</h4><p>功能分支工作流仍然用中央仓库，并且<code>master</code>分支还是代表了正式项目的历史。但不是直接提交本地历史到各自的本地<code>master</code>分支，开发者每次在开始新功能前先创建一个新分支。功能分支应该有个有描述性的名字，比如<code>animated-menu-items</code>或<code>issue-#1061</code>，这样可以让分支有个清楚且高聚焦的用途。</p>
+<p>在<code>master</code>分支和功能分支之间，<code>Git</code>是没有技术上的区别，所以开发者可以用和集中式工作流中完全一样的方式编辑、暂存和提交修改到功能分支上。</p>
+<p>另外，功能分支也可以（且应该）<code>push</code>到中央仓库中。这样不修改正式代码就可以和其它开发者分享提交的功能。由于<code>master</code>仅有的一个『特殊』分支，在中央仓库上存多个功能分支不会有任何问题。当然，这样做也可以很方便地备份各自的本地提交。</p>
+<h4 id="拉取请求（Pull-Requests）"><a href="#拉取请求（Pull-Requests）" class="headerlink" title="拉取请求（Pull Requests）"></a>拉取请求（Pull Requests）</h4><p>功能分支除了可以隔离功能的开发，也使得通过<code>Pull Requests</code>讨论变更成为可能。一旦某个开发完成一个功能，不是立即合并到<code>master</code>，而是<code>push</code>到中央仓库的功能分支上并发起一个<code>Pull Request</code>请求去合并修改到<code>master</code>。在修改成为主干代码前，这让其它的开发者有机会先去<code>Review</code>变更。</p>
+<p><code>Code Review</code>是<code>Pull Requests</code>的一个重要的收益，但<code>Pull Requests</code>目的是讨论代码一个通用方式。你可以把<code>Pull Requests</code>作为专门给某个分支的讨论。这意味着可以在更早的开发过程中就可以进行<code>Code Review</code>。比如，一个开发者开发功能需要帮助时，要做的就是发起一个<code>Pull Request</code>，相关的人就会自动收到通知，在相关的提交旁边能看到需要帮助解决的问题。</p>
+<p>一旦<code>Pull Request</code>被接受了，发布功能要做的就和集中式工作流就很像了。首先，确定本地的<code>master</code>分支和上游的<code>master</code>分支是同步的。然后合并功能分支到本地<code>master</code>分支并<code>push</code>已经更新的本地<code>master</code>分支到中央仓库。</p>
+<p>仓库管理的产品解决方案像<code>Bitbucket</code>或<code>Stash</code>，可以良好地支持<code>Pull Requests</code>。可以看看<code>Stash</code>的<code>Pull Requests</code>文档。</p>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><p>下面的示例演示了如何把<code>Pull Requests</code>作为<code>Code Review</code>的方式，但注意<code>Pull Requests</code>可以用于很多其它的目的</p>
+<h5 id="小红开始开发一个新功能"><a href="#小红开始开发一个新功能" class="headerlink" title="小红开始开发一个新功能"></a>小红开始开发一个新功能</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E7%BA%A2%E5%BC%80%E5%8F%911.png" alt=""></p>
+<p>在开始开发功能前，小红需要一个独立的分支。使用下面的命令新建一个分支：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b marys-feature master</span><br></pre></td></tr></table></figure>
+<p>这个命令检出一个基于<code>master</code>名为<code>marys-feature</code>的分支，<code>Git</code>的<code>-b</code>选项表示如果分支还不存在则新建分支。这个新分支上，小红按老套路编辑、暂存和提交修改，按需要提交以实现功能：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git statusgit addgit commit</span><br></pre></td></tr></table></figure>
+<h5 id="小红要去吃个午饭"><a href="#小红要去吃个午饭" class="headerlink" title="小红要去吃个午饭"></a>小红要去吃个午饭</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E7%BA%A2%E5%8D%88%E9%A5%AD.png" alt=""></p>
+<p>早上小红为新功能添加一些提交。去吃午饭前，<code>push</code>功能分支到中央仓库是很好的做法，这样可以方便地备份，如果和其它开发协作，也让他们可以看到小红的提交。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin marys-feature</span><br></pre></td></tr></table></figure>
+<p>这条命令<code>push</code> <code>marys-feature</code>分支到中央仓库（<code>origin</code>），<code>-u</code>选项设置本地分支去跟踪远程对应的分支。设置好跟踪的分支后，小红就可以使用<code>git push</code>命令省去指定推送分支的参数。</p>
+<h5 id="小红完成功能开发"><a href="#小红完成功能开发" class="headerlink" title="小红完成功能开发"></a>小红完成功能开发</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E7%BA%A2%E5%AE%8C%E6%88%90.png" alt=""></p>
+<p>小红吃完午饭回来，完成整个功能的开发。<a href="https://www.atlassian.com/git/tutorial/git-branches#!merge" target="_blank" rel="noopener">在合并到<code>master</code>之前</a>，她发起一个<code>Pull Request</code>让团队的其它人知道功能已经完成。但首先，她要确认中央仓库中已经有她最近的提交：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+<p>然后，在她的<code>Git</code> <code>GUI</code>客户端中发起<code>Pull Request</code>，请求合并<code>marys-feature</code>到<code>master</code>，团队成员会自动收到通知。<code>Pull Request</code>很酷的是可以在相关的提交旁边显示评注，所以你可以对某个变更提问。</p>
+<h5 id="小黑收到Pull-Request"><a href="#小黑收到Pull-Request" class="headerlink" title="小黑收到Pull Request"></a>小黑收到Pull Request</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E9%BB%91%E6%94%B6%E5%88%B0.png" alt=""></p>
+<p>小黑收到了<code>Pull Request</code>后会查看<code>marys-feature</code>的修改。决定在合并到正式项目前是否要做些修改，且通过<code>Pull Request</code>和小红来回地讨论。</p>
+<h5 id="小红再做修改"><a href="#小红再做修改" class="headerlink" title="小红再做修改"></a>小红再做修改</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E7%BA%A2%E4%BF%AE%E6%94%B9.png" alt=""></p>
+<p>要再做修改，小红用和功能第一个迭代完全一样的过程。编辑、暂存、提交并<code>push</code>更新到中央仓库。小红这些活动都会显示在<code>Pull Request</code>上，小黑可以断续做评注。</p>
+<p>如果小黑有需要，也可以把<code>marys-feature</code>分支拉到本地，自己来修改，他加的提交也会一样显示在<code>Pull Request</code>上。</p>
+<h5 id="小红发布它的功能"><a href="#小红发布它的功能" class="headerlink" title="小红发布它的功能"></a>小红发布它的功能</h5><p> <img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E7%BA%A2%E5%8F%91%E5%B8%83.png" alt=""></p>
+<p>一旦小黑可以的接受<code>Pull Request</code>，就可以合并功能到稳定项目代码中（可以由小黑或是小红来做这个操作）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git pull</span><br><span class="line">git pull origin marys-feature</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<p>无论谁来做合并，首先要检出<code>master</code>分支并确认是它是最新的。然后执行<code>git pull origin marys-feature</code>合并<code>marys-feature</code>分支到和已经和远程一致的本地<code>master</code>分支。你可以使用简单<code>git merge marys-feature</code>命令，但前面的命令可以保证总是最新的新功能分支。最后更新的<code>master</code>分支要重新<code>push</code>回到<code>origin</code>。</p>
+<p>这个过程常常会生成一个合并提交。有些开发者喜欢有合并提交，因为它像一个新功能和原来代码基线的连通符。但如果你偏爱线性的提交历史，可以在执行合并时<code>rebase</code>新功能到<code>master</code>分支的顶部，这样生成一个快进（<code>fast-forward</code>）的合并。</p>
+<p>一些<code>GUI</code>客户端可以只要点一下『接受』按钮执行好上面的命令来自动化<code>Pull Request</code>接受过程。如果你的不能这样，至少在功能合并到<code>master</code>分支后能自动关闭<code>Pull Request</code>。</p>
+<h5 id="与此同时，小明在做和小红一样的事"><a href="#与此同时，小明在做和小红一样的事" class="headerlink" title="与此同时，小明在做和小红一样的事"></a>与此同时，小明在做和小红一样的事</h5><p>当小红和小黑在<code>marys-feature</code>上工作并讨论她的<code>Pull Request</code>的时候，小明在自己的功能分支上做完全一样的事。</p>
+<p>通过隔离功能到独立的分支上，每个人都可以自主的工作，当然必要的时候在开发者之间分享变更还是比较繁琐的。</p>
+<h5 id="下一站-1"><a href="#下一站-1" class="headerlink" title="下一站"></a>下一站</h5><p>到了这里，但愿你发现了功能分支可以很直接地在集中式工作流的仅有的<code>master</code>分支上完成多功能的开发。另外，功能分支还使用了<code>Pull Request</code>，使得可以在你的版本控制<code>GUI</code>客户端中讨论某个提交。</p>
+<p>功能分支工作流是开发项目异常灵活的方式。问题是，有时候太灵活了。对于大型团队，常常需要给不同分支分配一个更具体的角色。<code>Gitflow</code>工作流是管理功能开发、发布准备和维护的常用模式。</p>
+<h3 id="Gitflow工作流"><a href="#Gitflow工作流" class="headerlink" title="Gitflow工作流"></a>Gitflow工作流</h3><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%B7%A5%E4%BD%9C%E6%B5%81.png" alt=""></p>
+<p>这节介绍的<code>Gitflow</code>工作流借鉴自在nvie的<em>Vincent Driessen</em>。</p>
+<blockquote>
+<p>在项目没有特殊说明的情况下，团队一律采用Gitflow工作流。</p>
+</blockquote>
+<p><code>Gitflow</code>工作流定义了一个围绕项目发布的严格分支模型。虽然比功能分支工作流复杂几分，但提供了用于一个健壮的用于管理大型项目的框架。</p>
+<p><code>Gitflow</code>工作流没有用超出功能分支工作流的概念和命令，而是为不同的分支分配一个很明确的角色，并定义分支之间如何和什么时候进行交互。除了使用功能分支，在做准备、维护和记录发布也使用各自的分支。当然你可以用上功能分支工作流所有的好处：<code>Pull Requests</code>、隔离实验性开发和更高效的协作。</p>
+<h4 id="工作方式-2"><a href="#工作方式-2" class="headerlink" title="工作方式"></a>工作方式</h4><p><code>Gitflow</code>工作流仍然用中央仓库作为所有开发者的交互中心。和其它的工作流一样，开发者在本地工作并<code>push</code>分支到要中央仓库中。</p>
+<h5 id="历史分支"><a href="#历史分支" class="headerlink" title="历史分支"></a>历史分支</h5><p>相对使用仅有的一个<code>master</code>分支，<code>Gitflow</code>工作流使用2个分支来记录项目的历史。<code>master</code>分支存储了正式发布的历史，而<code>develop</code>分支作为功能的集成分支。这样也方便<code>master</code>分支上的所有提交分配一个版本号。</p>
+<p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%8E%86%E5%8F%B2%E5%88%86%E6%94%AF.png" alt=""></p>
+<p>剩下要说明的问题围绕着这2个分支的区别展开。</p>
+<h5 id="功能分支"><a href="#功能分支" class="headerlink" title="功能分支"></a>功能分支</h5><p>每个新功能位于一个自己的分支，这样可以<code>push</code>到中央仓库以备份和协作。但功能分支不是从<code>master</code>分支上拉出新分支，而是使用<code>develop</code>分支作为父分支。当新功能完成时，合并回<code>develop</code>分支。新功能提交应该从不直接与<code>master</code>分支交互。</p>
+<p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF.png" alt=""></p>
+<p> 注意，从各种含义和目的上来看，功能分支加上<code>develop</code>分支就是功能分支工作流的用法。但<code>Gitflow</code>工作流没有在这里止步。</p>
+<h5 id="发布分支"><a href="#发布分支" class="headerlink" title="发布分支"></a>发布分支</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%8F%91%E5%B8%83%E5%88%86%E6%94%AF.png" alt=""></p>
+<p>一旦<code>develop</code>分支上有了做一次发布（或者说快到了既定的发布日）的足够功能，就从<code>develop</code>分支上<code>fork</code>一个发布分支。新建的分支用于开始发布循环，所以从这个时间点开始之后新的功能不能再加到这个分支上 —— 这个分支只应该做<code>Bug</code>修复、文档生成和其它面向发布任务。一旦对外发布的工作都完成了，发布分支合并到<code>master</code>分支并分配一个版本号打好<code>Tag</code>。另外，这些从新建发布分支以来的做的修改要合并回<code>develop</code>分支。</p>
+<p>使用一个用于发布准备的专门分支，使得一个团队可以在完善当前的发布版本的同时，另一个团队可以继续开发下个版本的功能。<br>这也打造定义良好的开发阶段（比如，可以很轻松地说，『这周我们要做准备发布版本4.0』，并且在仓库的目录结构中可以实际看到）。</p>
+<p>常用的分支约定：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用于新建发布分支的分支: develop</span><br><span class="line">用于合并的分支: master</span><br><span class="line">分支命名: release-* 或 release/*</span><br></pre></td></tr></table></figure>
+<h5 id="维护分支"><a href="#维护分支" class="headerlink" title="维护分支"></a>维护分支</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E7%BB%B4%E6%8A%A4%E5%88%86%E6%94%AF.png" alt=""></p>
+<p>维护分支或说是热修复（<code>hotfix</code>）分支用于生成快速给产品发布版本（<code>production releases</code>）打补丁，这是唯一可以直接从<code>master</code>分支<code>fork</code>出来的分支。修复完成，修改应该马上合并回<code>master</code>分支和<code>develop</code>分支（当前的发布分支），<code>master</code>分支应该用新的版本号打好<code>Tag</code>。</p>
+<p>为<code>Bug</code>修复使用专门分支，让团队可以处理掉问题而不用打断其它工作或是等待下一个发布循环。你可以把维护分支想成是一个直接在<code>master</code>分支上处理的临时发布。</p>
+<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h4><p>下面的示例演示本工作流如何用于管理单个发布循环。假设你已经创建了一个中央仓库。</p>
+<h5 id="创建开发分支"><a href="#创建开发分支" class="headerlink" title="创建开发分支"></a>创建开发分支</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF.png" alt=""></p>
+<p>第一步为<code>master</code>分支配套一个<code>develop</code>分支。简单来做可以<a href="https://www.atlassian.com/git/tutorial/git-branches#!branch" target="_blank" rel="noopener">本地创建一个空的<code>develop</code>分支</a>，<code>push</code>到服务器上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`git branch develop``git push -u origin develop`</span><br></pre></td></tr></table></figure>
+<p>以后这个分支将会包含了项目的全部历史，而<code>master</code>分支将只包含了部分历史。其它开发者这时应该克隆中央仓库，建好<code>develop</code>分支的跟踪分支：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`git clone ssh:``//user@host/path/to/repo.git``git checkout -b develop origin/develop`</span><br></pre></td></tr></table></figure>
+<p>现在每个开发都有了这些历史分支的本地拷贝。</p>
+<h5 id="小红和小明开始开发新功能"><a href="#小红和小明开始开发新功能" class="headerlink" title="小红和小明开始开发新功能"></a>小红和小明开始开发新功能</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%BC%80%E5%8F%91%E6%96%B0%E5%8A%9F%E8%83%BD.png" alt=""></p>
+<p>这个示例中，小红和小明开始各自的功能开发。他们需要为各自的功能创建相应的分支。新分支不是基于<code>master</code>分支，而是应该基于<code>develop</code>分支：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`git checkout -b some-feature develop`</span><br></pre></td></tr></table></figure>
+<p>他们用老套路添加提交到各自功能分支上：编辑、暂存、提交：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`git status``git add``git commit`</span><br></pre></td></tr></table></figure>
+<h5 id="小红完成功能开发-1"><a href="#小红完成功能开发-1" class="headerlink" title="小红完成功能开发"></a>小红完成功能开发</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%B0%8F%E7%BA%A2%E5%AE%8C%E6%88%90%E5%BC%80%E5%8F%91.png" alt=""></p>
+<p> 添加了提交后，小红觉得她的功能OK了。如果团队使用<code>Pull Requests</code>，这时候可以发起一个用于合并到<code>develop</code>分支。否则她可以直接合并到她本地的<code>develop</code>分支后<code>push</code>到中央仓库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`git pull origin develop``git checkout develop``git merge some-feature``git push``git branch -d some-feature`</span><br></pre></td></tr></table></figure>
+<p>第一条命令在合并功能前确保<code>develop</code>分支是最新的。注意，功能决不应该直接合并到<code>master</code>分支。冲突解决方法和<a href="http://blog.jobbole.com/76847/" target="_blank" rel="noopener">集中式工作流</a>一样。</p>
+<h5 id="小红开始准备发布"><a href="#小红开始准备发布" class="headerlink" title="小红开始准备发布"></a>小红开始准备发布</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%B0%8F%E7%BA%A2%E5%87%86%E5%A4%87%E5%8F%91%E5%B8%83.png" alt=""></p>
+<p>这个时候小明正在实现他的功能，小红开始准备她的第一个项目正式发布。像功能开发一样，她用一个新的分支来做发布准备。这一步也确定了发布的版本号：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`git checkout -b release-``0.1` `develop`</span><br></pre></td></tr></table></figure>
+<p>这个分支是清理发布、执行所有测试、更新文档和其它为下个发布做准备操作的地方，像是一个专门用于改善发布的功能分支。</p>
+<p>只要小红创建这个分支并<code>push</code>到中央仓库，这个发布就是功能冻结的。任何不在<code>develop</code>分支中的新功能都推到下个发布循环中。</p>
+<h5 id="小红完成发布"><a href="#小红完成发布" class="headerlink" title="小红完成发布"></a>小红完成发布</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%B0%8F%E7%BA%A2%E5%AE%8C%E6%88%90%E5%8F%91%E5%B8%83.png" alt=""></p>
+<p>一旦准备好了对外发布，小红合并修改到<code>master</code>分支和<code>develop</code>分支上，删除发布分支。合并回<code>develop</code>分支很重要，因为在发布分支中已经提交的更新需要在后面的新功能中也要是可用的。另外，如果小红的团队要求<code>Code Review</code>，这是一个发起<code>Pull Request</code>的理想时机。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`git checkout master``git merge release-``0.1``git push``git checkout develop``git merge release-``0.1``git push``git branch -d release-``0.1`</span><br></pre></td></tr></table></figure>
+<p>发布分支是作为功能开发（<code>develop</code>分支）和对外发布（<code>master</code>分支）间的缓冲。只要有合并到<code>master</code>分支，就应该打好<code>Tag</code>以方便跟踪。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`git tag -a ``0.1` `-m ``&quot;Initial public release&quot;` `master``git push --tags`</span><br></pre></td></tr></table></figure>
+<p><code>Git</code>有提供各种勾子（<code>hook</code>），即仓库有事件发生时触发执行的脚本。可以配置一个勾子，在你<code>push</code>中央仓库的<code>master</code>分支时，自动构建好对外发布。</p>
+<h5 id="最终用户发现Bug"><a href="#最终用户发现Bug" class="headerlink" title="最终用户发现Bug"></a>最终用户发现Bug</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%8F%91%E7%8E%B0bug.png" alt=""></p>
+<p>对外发布后，小红回去和小明一起做下个发布的新功能开发，直到有最终用户开了一个<code>Ticket</code>抱怨当前版本的一个<code>Bug</code>。为了处理<code>Bug</code>，小红（或小明）从<code>master</code>分支上拉出了一个维护分支，提交修改以解决问题，然后直接合并回<code>master</code>分支：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`git checkout -b issue-#``001` `master``# Fix the bug``git checkout master``git merge issue-#``001``git push`</span><br></pre></td></tr></table></figure>
+<p>就像发布分支，维护分支中新加这些重要修改需要包含到<code>develop</code>分支中，所以小红要执行一个合并操作。然后就可以安全地<a href="https://www.atlassian.com/git/tutorial/git-branches#!branch" target="_blank" rel="noopener">删除这个分支</a>了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`git checkout develop``git merge issue-#``001``git push``git branch -d issue-#``001`</span><br></pre></td></tr></table></figure>
+<h2 id="四、git拉取请求"><a href="#四、git拉取请求" class="headerlink" title="四、git拉取请求"></a>四、git拉取请求</h2><p>Git拉取请求（Pull Request），其含义就是请求管理员（项目经理）将你所做的修改提交拉取到正式代码中。根据<a href="http://140.143.45.184/wiki/pages/viewpage.action?pageId=2982308" target="_blank" rel="noopener">Git工作流程</a>，当任务完成时，需要提交审核，这时需要发起拉取请求（Pull Request）。另外，拉取请求还可以被用于讨论代码中技术问题。</p>
+<h3 id="通过拉取请求提交工作结果"><a href="#通过拉取请求提交工作结果" class="headerlink" title="通过拉取请求提交工作结果"></a>通过拉取请求提交工作结果</h3><h4 id="拉取请求的发起"><a href="#拉取请求的发起" class="headerlink" title="拉取请求的发起"></a>拉取请求的发起</h4><p>当发起拉取请求时，应该将一个git仓库中对应一个（jira）任务的所有提交一起汇总到一个拉取请求中提交审核。</p>
+<p>在jira工作流中，这会自动的将相关的jira任务迁移到“待审核”状态，表示开发者完成了自己的工作。</p>
+<h4 id="审核人的选择"><a href="#审核人的选择" class="headerlink" title="审核人的选择"></a>审核人的选择</h4><p>审核人的选择按照以下要求执行：</p>
+<ol>
+<li>任何拉取请求，至少需要添加默认审核人进行评审。</li>
+<li>任务参与人发起拉取请求时，除了默认审核人，需要额外增加任务负责人到审核人中。</li>
+<li>子任务负责人发起拉去请求时，除了默认审核人，需要额外增加父任务负责人到审核人中。</li>
+</ol>
+<h2 id="五、git提交内容和-gitignore"><a href="#五、git提交内容和-gitignore" class="headerlink" title="五、git提交内容和.gitignore"></a>五、git提交内容和.gitignore</h2><p>一般来说，允许提交到Git服务器管理的文件要求是<strong>非自动生成的文件</strong>，尽可能只管理<strong>文本文件</strong>。</p>
+<p>常见的不允许提交的文件包括：</p>
+<ol>
+<li>编译目标文件，包括静态库，动态库，可执行文件等。</li>
+<li>编译中间生成文件</li>
+<li>IDE的工程文件/文件夹</li>
+<li>自动备份文件</li>
+<li>一般的二进制文件（需要具体情况具体判断）</li>
+<li>临时文件</li>
+</ol>
+<p>对于不允许提交到Git服务器的文件，使用.gitignore设置忽略。典型的<a href="http://140.143.45.184/wiki/download/attachments/2982311/.gitignore?version=1&amp;modificationDate=1485239900000&amp;api=v2" target="_blank" rel="noopener">.gitignore</a>文件如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`.idea``cmake-build-*``*.dll``*.so``*.a``*.lib``*.bin``*.exe``.ipynb_checkpoints``*.pyc``*~``*.asv``*.log``*.aux``*.bcf``*.run.xml``*.bbl``*.blg``*.ttf``*.ttc``*.dat``*.lock``*~``*.sln``*.suo``*.dsp``*.vcxproj``*.vcxproj.*``*.rc``*.aps``*.rc2``*.pro.user``*.pro``*.pri``*.qrc``*.db``*.opt`</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+
+
+    <div>
+          
+            
+
+          
+    </div>
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+    
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习小记/" rel="tag"><i class="fa fa-tag"> 学习小记</i></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/27/java/java学习（10） /" rel="next" title="java学习（10）">
+                <i class="fa fa-chevron-left"></i> java学习（10）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://ww2.sinaimg.cn/large/7f318987jw1f72m7gv450j205k05kmx1.jpg" alt="xinyuan">
+            
+              <p class="site-author-name" itemprop="name">xinyuan</p>
+              <p class="site-description motion-element" itemprop="description">记录分享技术文档、工作生活日志等</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/xinyuan960205" title="GitHub &rarr; https://github.com/xinyuan960205" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://blog.csdn.net/anyue0205" title="CSDN &rarr; https://blog.csdn.net/anyue0205" rel="noopener" target="_blank"><i class="fa fa-fw fa-file-text"></i>CSDN</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git版本控制工具"><span class="nav-number">1.</span> <span class="nav-text">git版本控制工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、git常用命令"><span class="nav-number">1.1.</span> <span class="nav-text">一、git常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-Clone"><span class="nav-number">1.1.1.</span> <span class="nav-text">Git Clone</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-Commit"><span class="nav-number">1.1.2.</span> <span class="nav-text">Git Commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-Pull"><span class="nav-number">1.1.3.</span> <span class="nav-text">Git Pull</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-Push"><span class="nav-number">1.1.4.</span> <span class="nav-text">Git Push</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-Branch"><span class="nav-number">1.1.5.</span> <span class="nav-text">Git Branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-Merge"><span class="nav-number">1.1.6.</span> <span class="nav-text">Git Merge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-Tag"><span class="nav-number">1.1.7.</span> <span class="nav-text">Git Tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-Log"><span class="nav-number">1.1.8.</span> <span class="nav-text">Git Log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-Status"><span class="nav-number">1.1.9.</span> <span class="nav-text">Git Status</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-Stash"><span class="nav-number">1.1.10.</span> <span class="nav-text">Git Stash</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、git提交"><span class="nav-number">1.2.</span> <span class="nav-text">二、git提交</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git提交（Commit）"><span class="nav-number">1.2.1.</span> <span class="nav-text">Git提交（Commit）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git提交的时机和频率"><span class="nav-number">1.2.2.</span> <span class="nav-text">Git提交的时机和频率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#提交和推送"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">提交和推送</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提交的时机"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">提交的时机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提交的频率"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">提交的频率</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、git工作流程"><span class="nav-number">1.3.</span> <span class="nav-text">三、git工作流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集中式工作流-Centralized-Workflow"><span class="nav-number">1.3.1.</span> <span class="nav-text">集中式工作流(Centralized Workflow)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#工作方式"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">工作方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#冲突解决"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">冲突解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#有人先初始化好中央仓库"><span class="nav-number">1.3.1.3.1.</span> <span class="nav-text">有人先初始化好中央仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#所有人克隆中央仓库"><span class="nav-number">1.3.1.3.2.</span> <span class="nav-text">所有人克隆中央仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小明开发功能"><span class="nav-number">1.3.1.3.3.</span> <span class="nav-text">小明开发功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小红开发功能"><span class="nav-number">1.3.1.3.4.</span> <span class="nav-text">小红开发功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小明发布功能"><span class="nav-number">1.3.1.3.5.</span> <span class="nav-text">小明发布功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小红试着发布功能"><span class="nav-number">1.3.1.3.6.</span> <span class="nav-text">小红试着发布功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小红在小明的提交之上rebase"><span class="nav-number">1.3.1.3.7.</span> <span class="nav-text">小红在小明的提交之上rebase</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小红解决合并冲突"><span class="nav-number">1.3.1.3.8.</span> <span class="nav-text">小红解决合并冲突</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小红成功发布功能"><span class="nav-number">1.3.1.3.9.</span> <span class="nav-text">小红成功发布功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下一站"><span class="nav-number">1.3.1.3.10.</span> <span class="nav-text">下一站</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分支工作流（Feature-Branch-Workflow）"><span class="nav-number">1.3.2.</span> <span class="nav-text">功能分支工作流（Feature Branch Workflow）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#工作方式-1"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">工作方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拉取请求（Pull-Requests）"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">拉取请求（Pull Requests）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例-1"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#小红开始开发一个新功能"><span class="nav-number">1.3.2.3.1.</span> <span class="nav-text">小红开始开发一个新功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小红要去吃个午饭"><span class="nav-number">1.3.2.3.2.</span> <span class="nav-text">小红要去吃个午饭</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小红完成功能开发"><span class="nav-number">1.3.2.3.3.</span> <span class="nav-text">小红完成功能开发</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小黑收到Pull-Request"><span class="nav-number">1.3.2.3.4.</span> <span class="nav-text">小黑收到Pull Request</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小红再做修改"><span class="nav-number">1.3.2.3.5.</span> <span class="nav-text">小红再做修改</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小红发布它的功能"><span class="nav-number">1.3.2.3.6.</span> <span class="nav-text">小红发布它的功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#与此同时，小明在做和小红一样的事"><span class="nav-number">1.3.2.3.7.</span> <span class="nav-text">与此同时，小明在做和小红一样的事</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下一站-1"><span class="nav-number">1.3.2.3.8.</span> <span class="nav-text">下一站</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gitflow工作流"><span class="nav-number">1.3.3.</span> <span class="nav-text">Gitflow工作流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#工作方式-2"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">工作方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#历史分支"><span class="nav-number">1.3.3.1.1.</span> <span class="nav-text">历史分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#功能分支"><span class="nav-number">1.3.3.1.2.</span> <span class="nav-text">功能分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#发布分支"><span class="nav-number">1.3.3.1.3.</span> <span class="nav-text">发布分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#维护分支"><span class="nav-number">1.3.3.1.4.</span> <span class="nav-text">维护分支</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例-2"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建开发分支"><span class="nav-number">1.3.3.2.1.</span> <span class="nav-text">创建开发分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小红和小明开始开发新功能"><span class="nav-number">1.3.3.2.2.</span> <span class="nav-text">小红和小明开始开发新功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小红完成功能开发-1"><span class="nav-number">1.3.3.2.3.</span> <span class="nav-text">小红完成功能开发</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小红开始准备发布"><span class="nav-number">1.3.3.2.4.</span> <span class="nav-text">小红开始准备发布</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小红完成发布"><span class="nav-number">1.3.3.2.5.</span> <span class="nav-text">小红完成发布</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#最终用户发现Bug"><span class="nav-number">1.3.3.2.6.</span> <span class="nav-text">最终用户发现Bug</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、git拉取请求"><span class="nav-number">1.4.</span> <span class="nav-text">四、git拉取请求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过拉取请求提交工作结果"><span class="nav-number">1.4.1.</span> <span class="nav-text">通过拉取请求提交工作结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拉取请求的发起"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">拉取请求的发起</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#审核人的选择"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">审核人的选择</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、git提交内容和-gitignore"><span class="nav-number">1.5.</span> <span class="nav-text">五、git提交内容和.gitignore</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xinyuan</span>
+
+  
+
+  <div class="powered-by">
+  <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+  </span>
+  </div>
+
+  
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+</html>
