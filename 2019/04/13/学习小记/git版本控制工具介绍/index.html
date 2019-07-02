@@ -108,8 +108,8 @@
   <meta name="description" content="git版本控制工具一、git常用命令Git Clone用于初始检出远程git仓库。默认克隆远程git仓库的默认分支。 Git Commit用于提交修改。Git commit在概念上就是代码库的一个快照，是Git版本管理的基本单元。多个git仓库同步的基本内容也是commit。一般来说，git库的commit提交不会丢失。 注意，git commit只是提交到本地，还需要git push才能同步到远">
 <meta name="keywords" content="学习小记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git使用">
-<meta property="og:url" content="http://yoursite.com/2019/04/13/学习小记/git使用/index.html">
+<meta property="og:title" content="git版本控制工具介绍">
+<meta property="og:url" content="http://yoursite.com/2019/04/13/学习小记/git版本控制工具介绍/index.html">
 <meta property="og:site_name" content="xinyuan&#39;s Blog">
 <meta property="og:description" content="git版本控制工具一、git常用命令Git Clone用于初始检出远程git仓库。默认克隆远程git仓库的默认分支。 Git Commit用于提交修改。Git commit在概念上就是代码库的一个快照，是Git版本管理的基本单元。多个git仓库同步的基本内容也是commit。一般来说，git库的commit提交不会丢失。 注意，git commit只是提交到本地，还需要git push才能同步到远">
 <meta property="og:locale" content="zh-CN">
@@ -131,7 +131,7 @@
 <meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E7%BA%A2%E5%BC%80%E5%8F%911.png">
 <meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E7%BA%A2%E5%8D%88%E9%A5%AD.png">
 <meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E7%BA%A2%E5%AE%8C%E6%88%90.png">
-<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E9%BB%91%E6%94%B6%E5%88%B0.png">
+<meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E9%BB%91%E6%94%B6%E5%88%B0pull.png">
 <meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E7%BA%A2%E4%BF%AE%E6%94%B9.png">
 <meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E7%BA%A2%E5%8F%91%E5%B8%83.png">
 <meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%B7%A5%E4%BD%9C%E6%B5%81.png">
@@ -145,9 +145,9 @@
 <meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%B0%8F%E7%BA%A2%E5%87%86%E5%A4%87%E5%8F%91%E5%B8%83.png">
 <meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%B0%8F%E7%BA%A2%E5%AE%8C%E6%88%90%E5%8F%91%E5%B8%83.png">
 <meta property="og:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/gitflow%E5%8F%91%E7%8E%B0bug.png">
-<meta property="og:updated_time" content="2019-04-13T15:46:08.687Z">
+<meta property="og:updated_time" content="2019-04-23T07:05:33.922Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git使用">
+<meta name="twitter:title" content="git版本控制工具介绍">
 <meta name="twitter:description" content="git版本控制工具一、git常用命令Git Clone用于初始检出远程git仓库。默认克隆远程git仓库的默认分支。 Git Commit用于提交修改。Git commit在概念上就是代码库的一个快照，是Git版本管理的基本单元。多个git仓库同步的基本内容也是commit。一般来说，git库的commit提交不会丢失。 注意，git commit只是提交到本地，还需要git push才能同步到远">
 <meta name="twitter:image" content="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%B7%A5%E4%BD%9C%E6%B5%81.png">
 
@@ -156,7 +156,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/13/学习小记/git使用/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/13/学习小记/git版本控制工具介绍/">
 
 
 
@@ -166,7 +166,7 @@
   };
 </script>
 
-  <title>git使用 | xinyuan's Blog</title>
+  <title>git版本控制工具介绍 | xinyuan's Blog</title>
   
 
 
@@ -416,7 +416,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/学习小记/git使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/学习小记/git版本控制工具介绍/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xinyuan">
@@ -433,7 +433,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git使用
+          <h1 class="post-title" itemprop="name headline">git版本控制工具介绍
 
               
             
@@ -459,12 +459,24 @@
                 
               
 
-              <time title="创建时间：2019-04-13 18:04:15 / 修改时间：23:46:08" itemprop="dateCreated datePublished" datetime="2019-04-13T18:04:15+08:00">2019-04-13</time>
+              <time title="创建时间：2019-04-13 18:04:15" itemprop="dateCreated datePublished" datetime="2019-04-13T18:04:15+08:00">2019-04-13</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-23 15:05:33" itemprop="dateModified" datetime="2019-04-23T15:05:33+08:00">2019-04-23</time>
               
             
           </span>
@@ -649,7 +661,7 @@
 <p>小红吃完午饭回来，完成整个功能的开发。<a href="https://www.atlassian.com/git/tutorial/git-branches#!merge" target="_blank" rel="noopener">在合并到<code>master</code>之前</a>，她发起一个<code>Pull Request</code>让团队的其它人知道功能已经完成。但首先，她要确认中央仓库中已经有她最近的提交：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
 <p>然后，在她的<code>Git</code> <code>GUI</code>客户端中发起<code>Pull Request</code>，请求合并<code>marys-feature</code>到<code>master</code>，团队成员会自动收到通知。<code>Pull Request</code>很酷的是可以在相关的提交旁边显示评注，所以你可以对某个变更提问。</p>
-<h5 id="小黑收到Pull-Request"><a href="#小黑收到Pull-Request" class="headerlink" title="小黑收到Pull Request"></a>小黑收到Pull Request</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E9%BB%91%E6%94%B6%E5%88%B0.png" alt=""></p>
+<h5 id="小黑收到Pull-Request"><a href="#小黑收到Pull-Request" class="headerlink" title="小黑收到Pull Request"></a>小黑收到Pull Request</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E9%BB%91%E6%94%B6%E5%88%B0pull.png" alt=""></p>
 <p>小黑收到了<code>Pull Request</code>后会查看<code>marys-feature</code>的修改。决定在合并到正式项目前是否要做些修改，且通过<code>Pull Request</code>和小红来回地讨论。</p>
 <h5 id="小红再做修改"><a href="#小红再做修改" class="headerlink" title="小红再做修改"></a>小红再做修改</h5><p><img src="https://github.com/xinyuan960205/pic_resource/raw/master/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0/git/%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B0%8F%E7%BA%A2%E4%BF%AE%E6%94%B9.png" alt=""></p>
 <p>要再做修改，小红用和功能第一个迭代完全一样的过程。编辑、暂存、提交并<code>push</code>更新到中央仓库。小红这些活动都会显示在<code>Pull Request</code>上，小黑可以断续做评注。</p>
@@ -805,6 +817,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/04/23/学习小记/git使用具体案例/" rel="prev" title="new">
+                new <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -875,7 +891,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -900,7 +916,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -923,7 +941,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
